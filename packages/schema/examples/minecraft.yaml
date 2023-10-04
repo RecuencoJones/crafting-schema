@@ -1,0 +1,18 @@
+materials:
+  wood:
+    name: Wood
+
+products:
+  basic:
+    planks:
+      name: Planks
+      recipe:
+      - item:
+          $ref: '#/materials/wood'
+        count: 1
+    stick:
+      name: Stick
+      recipe:
+      - item:
+          $ref: '#/products/basic/planks'
+        count: 2

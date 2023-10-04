@@ -1,0 +1,863 @@
+# replace whitespace in keys: /(\w+)(\s+)(\w+):/$1_$3:/s
+
+materials:
+  generic:
+    FIBROUS_NYLITE_SOLUTION:
+      name: Fibrous Nylite Solution
+      type: Crafting Material
+      grade: 1
+      quality: white
+      from:
+      - Crew Skill Vendor
+      - Archaeology Mission
+    THERMOIONIC_GEL_SUSPENSION:
+      name: Thermoionic Gel Suspension
+      type: Crafting Material
+      grade: 2
+      quality: white
+    DEMICOT_SILK:
+      name: Demicot Silk
+      type: Crafting Material
+      grade: 3
+      quality: white
+    BROCART_FILAMENTS:
+      name: Brocart Filaments
+      type: Crafting Material
+      grade: 4
+      quality: white
+    ZEYD_CLOTH:
+      name: Zeyd-Cloth
+      type: Crafting Material
+      grade: 5
+      quality: white
+    CORTOSIS_SUBSTRATE:
+      name: Cortosis Substrate
+      type: Crafting Material
+      grade: 6
+      quality: white
+    CORUNDUM_POWER:
+      name: Corundum Power
+      type: Crafting Material
+      grade: 7
+      quality: white
+    ZOOSHA_SOLUTION:
+      name: Zoosha Solution
+      type: Crafting Material
+      grade: 8
+      quality: white
+    CRANORAN_THREAD:
+      name: Cranoran Thread
+      type: Crafting Material
+      grade: 9
+      quality: white
+    TRAVELLA_CLOTH:
+      name: Travella Cloth
+      type: Crafting Material
+      grade: 10
+      quality: white
+    STANDARD_VEDA_CLOTH:
+      name: Standard Veda Cloth
+      type: Crafting Material
+      grade: 11
+      quality: white
+    PREMIUM_VEDA_CLOTH:
+      name: Premium Veda Cloth
+      type: Crafting Material
+      grade: 11
+      quality: green
+    PROTOTYPE_VEDA_CLOTH:
+      name: Prototype Veda Cloth
+      type: Crafting Material
+      grade: 11
+      quality: blue
+
+  slicing:
+    POWER_TUBE:
+      type: Sliced Tech Part
+      grade: 1
+      quality: blue
+      from:
+      - Slicing Mission
+    MEMORY_CORE:
+      type: Sliced Tech Part
+      grade: 1
+      quality: purple
+      from:
+      - Slicing Mission
+    AUGMENTATION_CHIP:
+      type: Sliced Tech Part
+      grade: 2
+      quality: blue
+      from:
+      - Slicing Mission
+    CYBERNETIC_INTERFACE_JACK:
+      type: Sliced Tech Part
+      grade: 2
+      quality: purple
+      from:
+      - Slicing Mission
+    AUGMENT_MODIFICATION_ENHANCER:
+      type: Sliced Tech Part
+      grade: 3
+      quality: blue
+      from:
+      - Slicing Mission
+    POWER_CAPACITOR:
+      type: Sliced Tech Part
+      grade: 3
+      quality: purple
+      from:
+      - Slicing Mission
+    SONIC_IMPRINT_SENSOR:
+      name: Sonic Imprint Sensor
+      type: Sliced Tech Part
+      grade: 4
+      quality: blue
+      from:
+      - Slicing Mission
+    VACIERITE_MEMORY_CORE:
+      name: Vacierite
+      type: Sliced Tech Part
+      grade: 4
+      quality: purple
+      from:
+      - Slicing Mission
+    ENERGY_CONVERTER:
+      type: Sliced Tech Part
+      grade: 5
+      quality: blue
+      from:
+      - Slicing Mission
+    LANTHANIDE_MODULATOR:
+      type: Sliced Tech Part
+      grade: 5
+      quality: purple
+      from:
+      - Slicing Mission
+    SUBELECTRONIC_DATA_MODULE:
+      type: Sliced Tech Part
+      grade: 6
+      quality: blue
+      from:
+      - Slicing Mission
+    ADVANCED_NEURAL_AUGMENTOR:
+      type: Sliced Tech Part
+      grade: 6
+      quality: purple
+      from:
+      - Slicing Mission
+    BIO_MECHANICAL_INTERFACE_CHIP:
+      type: Sliced Tech Part
+      grade: 7
+      quality: blue
+      from:
+      - Slicing Mission
+    THERMAL_REGULATOR:
+      type: Sliced Tech Part
+      grade: 7
+      quality: purple
+      from:
+      - Slicing Mission
+    BIOCELL_MEMORY_CORE:
+      type: Sliced Tech Part
+      grade: 8
+      quality: blue
+      from:
+      - Slicing Mission
+    ADAPTIVE_CIRCUITRY:
+      type: Sliced Tech Part
+      grade: 8
+      quality: purple
+      from:
+      - Slicing Mission
+    GIVIN_HYPERCALCULATOR:
+      type: Sliced Tech Part
+      grade: 9
+      quality: blue
+      from:
+      - Slicing Mission
+    SINITEEN_INFO_SCRAPER:
+      type: Sliced Tech Part
+      grade: 9
+      quality: purple
+      from:
+      - Slicing Mission
+    CODE_RECOMBINATOR:
+      type: Sliced Tech Part
+      grade: 10
+      quality: blue
+      from:
+      - Slicing Mission
+    SIGNAL_DISRUPTOR:
+      type: Sliced Tech Part
+      grade: 10
+      quality: purple
+      from:
+      - Slicing Mission
+
+  archaeology:
+    RUBAT_CRYSTAL:
+      grade: 1
+      type: Power Crystal
+      quality: green
+      from:
+      - Archaeology Gathering
+      - Archaeology Mission
+    NEXTOR_CRYSTAL:
+      grade: 2
+      type: Power Crystal
+      quality: green
+      from:
+      - Archaeology Gathering
+      - Archaeology Mission
+    OPILA_CRYSTAL:
+      grade: 3
+      type: Power Crystal
+      quality: green
+      from:
+      - Archaeology Gathering
+      - Archaeology Mission
+    FIRKRANN_CRYSTAL:
+      name: Firkrann Crystal
+      type: Power Crystal
+      grade: 4
+      quality: green
+      from:
+      - Archaeology Gathering
+      - Archaeology Mission
+    DAMIND_CRYSTAL:
+      type: Power Crystal
+      grade: 5
+      quality: green
+      from:
+      - Archaeology Gathering
+      - Archaeology Mission
+    UPARI_CRYSTAL:
+      type: Power Crystal
+      grade: 6
+      quality: green
+      from:
+      - Archaeology Gathering
+      - Archaeology Mission
+    CARBONIC_CRYSTAL:
+      type: Power Crystal
+      grade: 7
+      quality: green
+      from:
+      - Archaeology Gathering
+      - Archaeology Mission
+    RUUSAN_CRYSTAL:
+      type: Power Crystal
+      grade: 8
+      quality: green
+      from:
+      - Archaeology Gathering
+      - Archaeology Mission
+    GLEAMING_PHOND_CRYSTAL:
+      type: Power Crystal
+      grade: 9
+      quality: green
+      from:
+      - Archaeology Gathering
+      - Archaeology Mission
+    IRIDESCENT_BONDAR_CRYSTAL:
+      type: Power Crystal
+      grade: 10
+      quality: green
+      from:
+      - Archaeology Gathering
+      - Archaeology Mission
+    PREMIUM_LUSTROUS_BONDAR_CRYSTAL:
+      type: Power Crystal
+      grade: 11
+      quality: green
+    PROTOTYPE_LUSTROUS_BONDAR_CRYSTAL:
+      type: Power Crystal
+      grade: 11
+      quality: blue
+    ARTIFACT_LUSTROUS_BONDAR_CRYSTAL:
+      type: Power Crystal
+      grade: 11
+      quality: purple
+
+    LOST_ARTIFACT_FRAGMENT:
+      type: Artifact Fragment
+      grade: 1
+      quality: green
+      from:
+      - Archaeology Mission
+    SACRED_ARTIFACT_FRAGMENT:
+      type: Artifact Fragment
+      grade: 2
+      quality: green
+      from:
+      - Archaeology Mission
+    ANCIENT_ARTIFACT_FRAGMENT:
+      type: Artifact Fragment
+      grade: 3
+      quality: green
+      from:
+      - Archaeology Mission
+    GALACTIC_ARTIFACT_FRAGMENT:
+      name: Galactic Artifact Fragment
+      type: Artifact Fragment
+      grade: 4
+      quality: green
+      from:
+      - Archaeology Mission
+    HYPERTECH_ARTIFACT_FRAGMENT:
+      name: Hypertech Artifact Fragment
+      type: Artifact Fragment
+      grade: 5
+      quality: green
+      from:
+      - Archaeology Mission
+    PRIMEVAL_ARTIFACT_FRAGMENT:
+      name: Hypertech Artifact Fragment
+      type: Artifact Fragment
+      grade: 6
+      quality: green
+      from:
+      - Archaeology Mission
+    PRIMORDIAL_ARTIFACT_FRAGMENT:
+      type: Artifact Fragment
+      grade: 7
+      quality: green
+      from:
+      - Archaeology Mission
+    ENIGMATIC_ARTIFACT_FRAGMENT:
+      type: Artifact Fragment
+      grade: 8
+      quality: green
+      from:
+      - Archaeology Mission
+    GLEAMING_ALIEN_FRAGMENT:
+      type: Artifact Fragment
+      grade: 9
+      quality: green
+      from:
+      - Archaeology Mission
+    IRIDESCENT_ARTIFACT_FRAGMENT:
+      type: Artifact Fragment
+      grade: 10
+      quality: green
+      from:
+      - Archaeology Mission
+    PREMIUM_LUSTROUS_ARTIFACT_FRAGMENT:
+      type: Artifact Fragment
+      grade: 11
+      quality: green
+      from:
+      - Archaeology Mission
+    PROTOTYPE_LUSTROUS_ARTIFACT_FRAGMENT:
+      type: Artifact Fragment
+      grade: 11
+      quality: blue
+      from:
+      - Archaeology Mission
+    ARTIFACT_LUSTROUS_ARTIFACT_FRAGMENT:
+      type: Artifact Fragment
+      grade: 11
+      quality: purple
+      from:
+      - Archaeology Mission
+
+  underworld_trading:
+    SHADOWSILK:
+      type: Luxury Fabric
+      grade: 1
+      quality: blue
+      from:
+      - Treasure Hunting Mission
+    CYRENE_SILK:
+      type: Luxury Fabric
+      grade: 1
+      quality: purple
+      from:
+      - Treasure Hunting Mission
+    LASHAA_SILK:
+      type: Luxury Fabric
+      grade: 2
+      quality: blue
+      from:
+      - Treasure Hunting Mission
+    SHIMMERSILK:
+      type: Luxury Fabric
+      grade: 2
+      quality: purple
+      from:
+      - Treasure Hunting Mission
+    DRAMASSIAN_SILK:
+      type: Luxury Fabric
+      grade: 3
+      quality: blue
+      from:
+      - Treasure Hunting Mission
+    KILLIK_SILK:
+      type: Luxury Fabric
+      grade: 3
+      quality: purple
+      from:
+      - Treasure Hunting Mission
+    SEPTSILK:
+      name: Septsilk
+      type: Luxury Fabric
+      grade: 4
+      quality: blue
+      from:
+      - Treasure Hunting Mission
+    RODIAN_FLAME_SILK:
+      type: Luxury Fabric
+      grade: 4
+      quality: purple
+      from:
+      - Treasure Hunting Mission
+    VINE_SILK:
+      type: Luxury Fabric
+      grade: 5
+      quality: blue
+      from:
+      - Treasure Hunting Mission
+    SAAVA_SILK:
+      type: Luxury Fabric
+      grade: 5
+      quality: purple
+      from:
+      - Treasure Hunting Mission
+    NANOSILK:
+      type: Luxury Fabric
+      grade: 6
+      quality: blue
+      from:
+      - Treasure Hunting Mission
+    DENEBRILLAN_STAR_SILK:
+      type: Luxury Fabric
+      grade: 6
+      quality: purple
+      from:
+      - Treasure Hunting Mission
+    HYPERCLOTH:
+      type: Luxury Fabric
+      grade: 7
+      quality: blue
+      from:
+      - Treasure Hunting Mission
+    NANITE_THREADED_CLOTH:
+      type: Luxury Fabric
+      grade: 7
+      quality: purple
+      from:
+      - Treasure Hunting Mission
+    VEDA_CLOTH:
+      type: Luxury Fabric
+      grade: 8
+      quality: blue
+      from:
+      - Treasure Hunting Mission
+    OTTEGAN_SILK:
+      type: Luxury Fabric
+      grade: 8
+      quality: purple
+      from:
+      - Treasure Hunting Mission
+    CHARGED_HYPERCLOTH:
+      type: Luxury Fabric
+      grade: 9
+      quality: blue
+      from:
+      - Treasure Hunting Mission
+    ZAKUULAN_SILK:
+      type: Luxury Fabric
+      grade: 9
+      quality: purple
+      from:
+      - Treasure Hunting Mission
+    ROMEX:
+      type: Luxury Fabric
+      grade: 10
+      quality: blue
+      from:
+      - Treasure Hunting Mission
+    DREAMSILK:
+      type: Luxury Fabric
+      grade: 10
+      quality: purple
+      from:
+      - Treasure Hunting Mission
+
+products:
+  artifice:
+    RUBAT_ARTIFICE_BONDED_ATTACHMENT:
+      name: Rubat Artifice Bonded Attachment
+      type: Artifice Bonded Attachment
+      grade: 1
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/RUBAT_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/LOST_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/FIBROUS_NYLITE_SOLUTION'
+        count: 2
+    NEXTOR_ARTIFICE_BONDED_ATTACHMENT:
+      name: Nextor Artifice Bonded Attachment
+      type: Artifice Bonded Attachment
+      grade: 2
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/NEXTOR_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/SACRED_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/THERMOIONIC_GEL_SUSPENSION'
+        count: 2
+    OPILA_ARTIFICE_BONDED_ATTACHMENT:
+      name: Opila Artifice Bonded Attachment
+      type: Artifice Bonded Attachment
+      grade: 3
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/OPILA_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/ANCIENT_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/DEMICOT_SILK'
+        count: 2
+    FIRKRANN_ARTIFICE_BONDED_ATTACHMENT:
+      name: Firkrann Artifice Bonded Attachment
+      type: Artifice Bonded Attachment
+      grade: 4
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/FIRKRANN_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/GALACTIC_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/BROCART_FILAMENTS'
+        count: 2
+    DAMIND_ARTIFICE_BONDED_ATTACHMENT:
+      name: Damind Artifice Bonded Attachment
+      type: Artifice Bonded Attachment
+      grade: 5
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/DAMIND_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/HYPERTECH_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/ZEYD_CLOTH'
+        count: 2
+    UPARI_ARTIFICE_BONDED_ATTACHMENT:
+      name: Upari Artifice Bonded Attachment
+      type: Artifice Bonded Attachment
+      grade: 6
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/UPARI_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/PRIMEVAL_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/CORTOSIS_SUBSTRATE'
+        count: 2
+    CARBONIC_ARTIFICE_BONDED_ATTACHMENT:
+      name: Carbonic Artifice Bonded Attachment
+      type: Artifice Bonded Attachment
+      grade: 7
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/CARBONIC_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/PRIMORDIAL_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/CORUNDUM_POWER'
+        count: 2
+    RUUSAN_ARTIFICE_BONDED_ATTACHMENT:
+      name: Ruusan Artifice Bonded Attachment
+      type: Artifice Bonded Attachment
+      grade: 8
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/RUUSAN_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/ENIGMATIC_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/ZOOSHA_SOLUTION'
+        count: 2
+    GLEAMING_ARTIFICE_BONDED_ATTACHMENT:
+      name: Gleaming Artifice Bonded Attachment
+      type: Artifice Bonded Attachment
+      grade: 9
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/GLEAMING_PHOND_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/GLEAMING_ALIEN_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/CRANORAN_THREAD'
+        count: 2
+    IRIDESCENT_ARTIFICE_BONDED_ATTACHMENT:
+      name: Iridescent Artifice Bonded Attachment
+      type: Artifice Bonded Attachment
+      grade: 10
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/IRIDESCENT_BONDAR_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/IRIDESCENT_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/TRAVELLA_CLOTH'
+        count: 2
+
+    ADVANCED_VERSATILE_LIGHTSABER_HILT_19:
+      name: Advanced Versatile Lightsaber Hilt 19
+      type: Lightsaber Hilt
+      quality: purple
+      level: 38
+      recipe:
+      - item:
+          $ref: '#/products/artifice/FIRKRANN_ARTIFICE_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/VACIERITE_MEMORY_CORE'
+        count: 2
+    ADVANCED_VERSATILE_LIGHTSABER_HILT_21:
+      name: Advanced Versatile Lightsaber Hilt 21
+      type: Lightsaber Hilt
+      quality: purple
+      level: 42
+      recipe:
+      - item:
+          $ref: '#/products/artifice/DAMIND_ARTIFICE_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/treasure_hunting/PRISMATIC_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/ENERGY_CONVERTER'
+        count: 1
+      - item:
+          $ref: '#/materials/slicing/LANTHANIDE_MODULATOR'
+        count: 1
+
+  synthweaving:
+    RUBAT_SYNTH_BONDED_ATTACHMENT:
+      name: Rubat Synth Bonded Attachment
+      type: Synth Bonded Attachment
+      grade: 1
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/RUBAT_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/LOST_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/FIBROUS_NYLITE_SOLUTION'
+        count: 2
+    NEXTOR_SYNTH_BONDED_ATTACHMENT:
+      name: Nextor Synth Bonded Attachment
+      type: Synth Bonded Attachment
+      grade: 2
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/NEXTOR_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/SACRED_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/THERMOIONIC_GEL_SUSPENSION'
+        count: 2
+    OPILA_SYNTH_BONDED_ATTACHMENT:
+      name: Opila Synth Bonded Attachment
+      type: Synth Bonded Attachment
+      grade: 3
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/OPILA_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/ANCIENT_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/DEMICOT_SILK'
+        count: 2
+    FIRKRANN_SYNTH_BONDED_ATTACHMENT:
+      name: Firkrann Synth Bonded Attachment
+      type: Synth Bonded Attachment
+      grade: 4
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/FIRKRANN_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/GALACTIC_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/BROCART_FILAMENTS'
+        count: 2
+    DAMIND_SYNTH_BONDED_ATTACHMENT:
+      name: Damind Synth Bonded Attachment
+      type: Synth Bonded Attachment
+      grade: 5
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/DAMIND_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/HYPERTECH_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/ZEYD_CLOTH'
+        count: 2
+    UPARI_SYNTH_BONDED_ATTACHMENT:
+      name: Upari Synth Bonded Attachment
+      type: Synth Bonded Attachment
+      grade: 6
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/UPARI_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/PRIMEVAL_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/CORTOSIS_SUBSTRATE'
+        count: 2
+    CARBONIC_SYNTH_BONDED_ATTACHMENT:
+      name: Carbonic Synth Bonded Attachment
+      type: Synth Bonded Attachment
+      grade: 7
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/CARBONIC_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/PRIMORDIAL_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/CORUNDUM_POWER'
+        count: 2
+    RUUSAN_SYNTH_BONDED_ATTACHMENT:
+      name: Ruusan Synth Bonded Attachment
+      type: Synth Bonded Attachment
+      grade: 8
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/RUUSAN_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/ENIGMATIC_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/ZOOSHA_SOLUTION'
+        count: 2
+    GLEAMING_SYNTH_BONDED_ATTACHMENT:
+      name: Gleaming Synth Bonded Attachment
+      type: Synth Bonded Attachment
+      grade: 9
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/GLEAMING_PHOND_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/GLEAMING_ALIEN_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/CRANORAN_THREAD'
+        count: 2
+    IRIDESCENT_SYNTH_BONDED_ATTACHMENT:
+      name: Iridescent Synth Bonded Attachment
+      type: Synth Bonded Attachment
+      grade: 10
+      quality: green
+      recipe:
+      - item:
+          $ref: '#/materials/archaeology/IRIDESCENT_BONDAR_CRYSTAL'
+        count: 2
+      - item:
+          $ref: '#/materials/archaeology/IRIDESCENT_ARTIFACT_FRAGMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/TRAVELLA_CLOTH'
+        count: 2
+
+    ADVANCED_ALACRITY_AUGMENT_17:
+      name: Advanced Alacrity Augment 17
+      type: Augment
+      quality: purple
+      level: 34
+      requires:
+      - Augmentation slot MK-4 or better
+      recipe:
+      - item:
+          $ref: '#/products/synthweaving/FIRKRANN_SYNTH_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/SONIC_IMPRINT_SENSOR'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/SEPTSILK'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/VACIERITE_MEMORY_CORE'
+        count: 2
+    ADVANCED_ALACRITY_AUGMENT_21:
+      name: Advanced Alacrity Augment 21
+      type: Augment
+      quality: purple
+      level: 42
+      requires:
+      - Augmentation slot MK-5 or better
+      recipe:
+      - item:
+          $ref: '#/products/synthweaving/DAMIND_SYNTH_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/ENERGY_CONVERTER'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/VINE_SILK'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/LANTHANIDE_MODULATOR'
+        count: 2

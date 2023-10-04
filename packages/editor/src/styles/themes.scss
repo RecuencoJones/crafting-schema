@@ -1,0 +1,40 @@
+.theme--default {
+  --global-text: #000000;
+  --global-background: #ffffff;
+
+  --button-text: #ffffff;
+  --button-background: #6a93ea;
+  --button-hover-background: #9ab3e7;
+
+  --top-bar-text: #ffffff;
+  --top-bar-background: #83a6f3;
+  --top-bar-menu-hover-background: #9ab3e7;
+}
+
+.theme--dark {
+  --global-text: #ffffff;
+  --global-background: #362741;
+
+  --button-text: #ffffff;
+  --button-background: #a161d0;
+  --button-hover-background: #aa75cf;
+
+  --top-bar-text: #ffffff;
+  --top-bar-background: #b25fed;
+  --top-bar-menu-hover-background: #aa75cf;
+}
+
+.main {
+  color: var(--global-text);
+  background: var(--global-background);
+}
+
+button {
+  border: none;
+  color: var(--button-text);
+  background: var(--button-background);
+
+  &:hover {
+    background: var(--button-hover-background);
+  }
+}
