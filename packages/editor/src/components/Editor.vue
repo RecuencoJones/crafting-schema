@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import * as monaco from 'monaco-editor';
+import * as monaco from 'monaco-editor/esm/vs/editor/edcore.main';
+import 'monaco-editor/esm/vs/basic-languages/yaml/yaml.contribution';
 
 // sad, editor cannot be part of data, othwerise it will freeze :/
 let editor;
