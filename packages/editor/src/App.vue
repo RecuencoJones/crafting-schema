@@ -20,7 +20,7 @@
         <div class="workspace__preview__products">
           <div class="overflow">
             <template v-for="category of Object.keys(allProducts)" :key="category">
-              <div v-if="Object.values(filteredProducts[category]).length">
+              <div v-if="Object.values(filteredProducts[category] || {}).length">
                 <h4>{{ category }}</h4>
                 <RecipeItem
                   v-for="(product, key) of filteredProducts[category]"
@@ -99,7 +99,7 @@ export default {
     filteredProducts() {
       return (this.search || this.globalState.showBookmarksOnly)
         ? Object.entries(this.allProducts).reduce((accum, [ category, products ]) => {
-          accum[category] = Object.entries(products).reduce((accum, [ id, product ]) => {
+          accum[category] = Object.entries(products || {}).reduce((accum, [ id, product ]) => {
             if (this.globalState.showBookmarksOnly && !this.bookmarks.has(id)) {
               return accum;
             }
