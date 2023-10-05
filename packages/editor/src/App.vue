@@ -227,7 +227,7 @@ export default {
 
     async handleSave() {
       if (!this.fileHandle) {
-        return;
+        return this.handleSaveNew();
       }
 
       const writable = await this.fileHandle.createWritable();
@@ -236,6 +236,25 @@ export default {
       await writable.close();
 
       this.updatedSchema = null;
+    },
+    async handleSaveNew() {
+      this.fileHandle = await window.showSaveFilePicker({
+        suggestedName: 'crafting-schema.yaml',
+        types: [
+          {
+            desription: 'Schema files',
+            accept: {
+              'application/*': [ '.yaml', '.yml' ]
+            }
+          }
+        ]
+      });
+
+      await set('file', this.fileHandle);
+      this.globalState.lastFileHandle = null;
+      this.updatedSchema ||= this.schema;
+
+      await this.handleSave();
     },
     async handleClose() {
       this.schema = defaultSchema;
