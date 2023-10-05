@@ -8,11 +8,15 @@
       <menu class="sub-menu" v-show="showMenu === 'file'">
         <li class="sub-menu__item" @click="handleClick('cmd.open')">
           <span class="sub-menu__item__text">Open...</span>
-          <span class="sub-menu__item__binding">{{ ctrlCmd }}+O</span>
+          <span class="sub-menu__item__binding">{{ ctrlCmd }}O</span>
+        </li>
+        <li class="sub-menu__item" :class="{ 'sub-menu__item--disabled': !globalState.lastFileHandle }" @click="globalState.lastFileHandle && handleClick('cmd.openLast')">
+          <span class="sub-menu__item__text">Open last</span>
+          <span class="sub-menu__item__binding">{{ ctrlCmd }}⇧O</span>
         </li>
         <li class="sub-menu__item" @click="handleClick('cmd.save')">
           <span class="sub-menu__item__text">Save</span>
-          <span class="sub-menu__item__binding">{{ ctrlCmd }}+S</span>
+          <span class="sub-menu__item__binding">{{ ctrlCmd }}S</span>
         </li>
         <li class="sub-menu__item" @click="handleClick('cmd.close')">
           <span class="sub-menu__item__text">Close</span>
@@ -20,13 +24,31 @@
         </li>
       </menu>
     </nav>
+    <nav class="top-menu__item" @click="clicked = 'view'" @mouseenter="hovered = 'view'" @mouseleave="hovered = null">
+      <span>View</span>
+      <menu class="sub-menu" v-show="showMenu === 'view'">
+        <li class="sub-menu__item" @click="handleClick('cmd.showBookmarks')">
+          <span class="sub-menu__item__check">
+            <span v-if="globalState.showBookmarksOnly">✓</span>
+          </span>
+          <span class="sub-menu__item__text">Show bookmarks only</span>
+          <span class="sub-menu__item__binding">{{ ctrlCmd }}B</span>
+        </li>
+      </menu>
+    </nav>
     <nav class="top-menu__item" @click="clicked = 'theme'" @mouseenter="hovered = 'theme'" @mouseleave="hovered = null">
       <span>Theme</span>
       <menu class="sub-menu" v-show="showMenu === 'theme'">
         <li class="sub-menu__item" @click="handleClick('cmd.theme', 'default')">
+          <span class="sub-menu__item__check">
+            <span v-if="globalState.themeName === 'default'">✓</span>
+          </span>
           <span class="sub-menu__item__text">Default</span>
         </li>
         <li class="sub-menu__item" @click="handleClick('cmd.theme', 'dark')">
+          <span class="sub-menu__item__check">
+            <span v-if="globalState.themeName === 'dark'">✓</span>
+          </span>
           <span class="sub-menu__item__text">Dark</span>
         </li>
       </menu>
@@ -35,7 +57,12 @@
 </template>
 
 <script>
+import { useGlobalState } from '../state';
+
 export default {
+  setup() {
+    return useGlobalState();
+  },
   emits: [ 'command' ],
   data() {
     return {
@@ -51,7 +78,7 @@ export default {
       return navigator.userAgentData.platform === 'macOS';
     },
     ctrlCmd() {
-      return this.isMacOS ? '⌘' : 'Ctrl';
+      return this.isMacOS ? '⌘' : 'Ctrl ';
     }
   },
   methods: {
@@ -92,17 +119,13 @@ export default {
   position: absolute;
   top: 100%;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  padding: .25rem 0;
+  padding: 0;
   margin: 0;
   background: var(--top-bar-background);
-  width: max-content;
 }
 
 .top-menu__item menu li {
-  list-style-type: none;
-  padding: .5rem 1rem;
+  background: var(--top-bar-background);
 }
 
 .top-menu__item menu li:hover {
@@ -111,21 +134,39 @@ export default {
 }
 
 .sub-menu__item {
-  display: flex;
+  display: grid;
+  grid-template-areas: "check text binding";
+  grid-template-columns: 1rem 1fr auto;
+  width: 100%;
+  padding-right: .5rem;
+}
+
+.sub-menu__item.sub-menu__item--disabled {
+  color: #ddd;
 }
 
 .sub-menu__item__text {
-  display: block;
-  flex: 1;
+  grid-area: text;
   width: max-content;
+  text-align: left;
+  padding: .5rem;
 }
 
 .sub-menu__item__binding {
-  display: block;
-  flex: 0 0 fit-content;
-  margin-left: 1rem;
+  grid-area: binding;
   font-size: 11px;
   align-self: center;
+  padding-right: .5rem;
+  text-align: right;
+}
+
+.sub-menu__item__check {
+  grid-area: check;
+  width: 1rem;
+  font-size: 11px;
+  align-self: center;
+  text-align: center;
+  padding: .25rem .5rem;
 }
 
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="main" :class="themeClass">
+  <div class="app-main" :class="themeClass">
     <Splash v-if="appLoading" />
     <TopMenu @command="handleCommand" />
     <div class="workspace">
@@ -7,7 +7,7 @@
         <div class="workspace__editor__header">
           <h3>Crafting Schema<span v-if="hasChanges">*</span></h3>
         </div>
-        <Editor :text="schema" @change="handleChange" @value="handleValue" @error="handleError" @save="handleSave" />
+        <Editor :text="schema" @change="handleChange" @value="handleValue" @error="handleError" />
       </div>
       <div class="workspace__preview">
         <div class="workspace__preview__error" v-if="error">
@@ -22,15 +22,20 @@
             <template v-for="category of Object.keys(allProducts)" :key="category">
               <div v-if="Object.values(filteredProducts[category]).length">
                 <h4>{{ category }}</h4>
-                <RecipeItem v-for="(product, key) of filteredProducts[category]" :key="key" :item="product" />
+                <RecipeItem
+                  v-for="(product, key) of filteredProducts[category]"
+                  :key="key"
+                  :item="product"
+                  :capabilities="{ bookmark: true }"
+                  @bookmark="handleBookmark(key)" />
               </div>
             </template>
           </div>
         </div>
       </div>
     </div>
-    <BottomAlert v-if="lastFileHandle">
-      <span>File {{ lastFileHandle.name }} was edited last session, reopen it?</span>
+    <BottomAlert v-if="globalState.lastFileHandle">
+      <span>File {{ globalState.lastFileHandle.name }} was edited last session, reopen it?</span>
       <button @click="handleOpenLastFile">Yes</button> <button @click="handleIgnoreLastFile">No</button>
     </BottomAlert>
   </div>
@@ -38,12 +43,15 @@
 
 <script>
 import * as _ from 'lodash';
+import { toRaw } from 'vue';
 import { get, set, del } from 'idb-keyval';
+import hotkeys from 'hotkeys-js';
 import RecipeItem from './components/RecipeItem.vue';
 import Editor from './components/Editor.vue';
 import TopMenu from './components/TopMenu.vue';
 import BottomAlert from './components/BottomAlert.vue';
 import Splash from './components/Splash.vue';
+import { useGlobalState } from './state';
 
 async function verifyPermission(fileHandle) {
   const options = {
@@ -63,6 +71,9 @@ async function verifyPermission(fileHandle) {
 const defaultSchema = '# open a file or start editing\nproducts: {}';
 
 export default {
+  setup() {
+    return useGlobalState()
+  },
   components: {
     Editor,
     RecipeItem,
@@ -74,29 +85,39 @@ export default {
   data() {
     return {
       appLoading: true,
-      themeName: 'default',
       fileHandle: null,
-      lastFileHandle: null,
       error: null,
       search: '',
       schema: defaultSchema,
       updatedSchema: null,
-      allProducts: {}
+      allProducts: {},
+      bookmarks: new Set()
     }
   },
 
   computed: {
     filteredProducts() {
-      return this.search
+      return (this.search || this.globalState.showBookmarksOnly)
         ? Object.entries(this.allProducts).reduce((accum, [ category, products ]) => {
-          accum[category] = _.filter(products, (product) => product.name?.toLowerCase().includes(this.search.toLowerCase()));
+          accum[category] = Object.entries(products).reduce((accum, [ id, product ]) => {
+            if (this.globalState.showBookmarksOnly && !this.bookmarks.has(id)) {
+              return accum;
+            }
+
+            if (this.search && !product.name?.toLowerCase().includes(this.search.toLowerCase())) {
+              return accum;
+            }
+
+            accum[id] = product;
+            return accum;
+          }, {});
 
           return accum;
         }, {})
         : this.allProducts;
     },
     themeClass() {
-      return `theme--${ this.themeName }`;
+      return `theme--${ this.globalState.themeName }`;
     },
     hasChanges() {
       return this.updatedSchema && this.updatedSchema !== this.schema;
@@ -105,19 +126,52 @@ export default {
 
   async mounted() {
     try {
-      this.lastFileHandle = await get('file');
-
-      const themeName = await get('themeName');
-
-      if (themeName) {
-        this.themeName = themeName;
-      }
+      await this.loadStoredData();
+      this.setKeybinds();
     } catch(err) {} finally {
       this.appLoading = false;
     }
   },
 
+  async beforeUnmount() {
+    this.unsetKeybinds();
+  },
+
   methods: {
+    async loadStoredData() {
+      this.globalState.lastFileHandle = await get('file');
+
+      const themeName = await get('themeName');
+
+      if (themeName) {
+        this.globalState.themeName = themeName;
+      }
+
+      const bookmarks = await get('bookmarks');
+
+      if (bookmarks) {
+        this.bookmarks = bookmarks;
+        this.globalState.showBookmarksOnly = !!this.bookmarks.size;
+      }
+    },
+
+    setKeybinds() {
+      hotkeys.filter = () => true;
+
+      hotkeys('ctrl+s, cmd+s', () => {
+        this.handleSave();
+        return false;
+      });
+
+      hotkeys('ctrl+o, cmd+o', () => this.handleOpen());
+      hotkeys('ctrl+shift+o, cmd+shift+o', () => this.handleOpenLastFile());
+      hotkeys('ctrl+b, cmd+b', () => this.handleShowBookmarks());
+    },
+
+    unsetKeybinds() {
+      hotkeys.unbind();
+    },
+
     handleChange(value) {
       this.updatedSchema = value;
     },
@@ -129,14 +183,18 @@ export default {
       this.error = error;
     },
     async handleOpenLastFile() {
-      this.fileHandle = this.lastFileHandle;
+      if (!this.globalState.lastFileHandle) {
+        return;
+      }
+
+      this.fileHandle = this.globalState.lastFileHandle;
 
       await this.loadFile();
 
-      this.lastFileHandle = null;
+      this.globalState.lastFileHandle = null;
     },
     async handleIgnoreLastFile() {
-      this.lastFileHandle = null;
+      this.globalState.lastFileHandle = null;
     },
     async handleOpen() {
       const [fileHandle] = await window.showOpenFilePicker?.({
@@ -151,7 +209,7 @@ export default {
         multiple: false
       });
 
-      this.lastFileHandle = null;
+      this.globalState.lastFileHandle = null;
       this.fileHandle = fileHandle;
 
       await this.loadFile();
@@ -187,18 +245,34 @@ export default {
       await del('file');
     },
     async handleThemeChange(themeName) {
-      this.themeName = themeName;
+      this.globalState.themeName = themeName;
 
       await set('themeName', themeName);
+    },
+    handleShowBookmarks() {
+      this.globalState.showBookmarksOnly = !this.globalState.showBookmarksOnly;
+    },
+    handleBookmark(productKey) {
+      if (this.bookmarks.has(productKey)) {
+        this.bookmarks.delete(productKey);
+      } else {
+        this.bookmarks.add(productKey);
+      }
+
+      set('bookmarks', toRaw(this.bookmarks));
     },
     handleCommand({ command, args }) {
       switch (command) {
         case 'cmd.open':
           return this.handleOpen();
+        case 'cmd.openLast':
+          return this.handleOpenLastFile();
         case 'cmd.save':
           return this.handleSave();
         case 'cmd.close':
           return this.handleClose();
+        case 'cmd.showBookmarks':
+          return this.handleShowBookmarks();
         case 'cmd.theme':
           return this.handleThemeChange(...args);
       }
@@ -212,13 +286,13 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-html, body, main, .main {
+html, body, main, .app-main {
   margin: 0;
   height: 100%;
   width: 100%;
 }
 
-.main {
+.app-main {
   display: flex;
   flex-direction: column;
   overflow: hidden;

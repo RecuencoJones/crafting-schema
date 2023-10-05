@@ -1,14 +1,17 @@
 {
   "name": "@crafting-schema/editor",
   "scripts": {
-    "start": "vite"
+    "start": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@crafting-schema/schema": "*",
+    "express": "4.18.2",
+    "express-async-errors": "3.1.1"
   },
   "devDependencies": {
-    "@crafting-schema/schema": "*",
     "@vitejs/plugin-vue": "4.3.4",
-    "express": "4.18.2",
-    "express-async-errors": "3.1.1",
-    "file-saver": "2.0.5",
+    "hotkeys-js": "3.12.0",
     "idb-keyval": "6.2.1",
     "lodash": "4.17.21",
     "monaco-editor": "0.43.0",

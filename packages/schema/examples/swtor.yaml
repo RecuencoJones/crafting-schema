@@ -861,3 +861,11 @@ products:
       - item:
           $ref: '#/materials/slicing/LANTHANIDE_MODULATOR'
         count: 2
+
+    ADVANCED_VERSATILE_ARMORING_21:
+      name: Advanced Versatile Armoring 21
+      type: Armoring
+      recipe:
+      - item:
+          $ref: '#/products/synthweaving/DAMIND_SYNTH_BONDED_ATTACHMENT'
+        count: 2

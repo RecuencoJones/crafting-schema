@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "npm start -w @crafting-schema/editor"
+    "start": "npm start -w @crafting-schema/editor",
+    "build": "npm run build -w @crafting-schema/editor"
   }
 }

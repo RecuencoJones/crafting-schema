@@ -52,7 +52,6 @@ export default {
     }
   },
   async mounted() {
-
     editor = monaco.editor.create(this.$refs.editor, {
       value: this.text,
       language: 'yaml',
@@ -62,10 +61,6 @@ export default {
 
     editor.onDidChangeModelContent(() => {
       this.handleChange();
-    });
-
-    editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {
-      this.$emit('save');
     });
   },
   beforeUnmount() {

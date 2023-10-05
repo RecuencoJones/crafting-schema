@@ -12,6 +12,9 @@
         <div v-if="item.grade">Grade: {{ item.grade }}</div>
       </div>
       <div class="recipe-item__main__count" v-if="Number.isInteger(count)">{{ count }}x</div>
+      <div class="recipe-item__main__bookmark" v-if="capabilities?.bookmark">
+        <icon @click="$emit('bookmark')">🔖</icon>
+      </div>
     </div>
     <template v-if="expanded">
       <div class="recipe-item__recipe" v-if="item.recipe">
@@ -28,7 +31,8 @@
 <script>
 export default {
   name: 'RecipeItem',
-  props: [ 'count', 'item' ],
+  props: [ 'count', 'item', 'capabilities' ],
+  emits: [ 'bookmark' ],
   data() {
     return {
       expanded: false
@@ -71,5 +75,9 @@ button {
 
 .recipe-item__recipe {
   padding-left: 1rem;
+}
+
+.recipe-item__main__bookmark icon {
+  cursor: pointer;
 }
 </style>
