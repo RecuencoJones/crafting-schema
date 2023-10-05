@@ -29,7 +29,7 @@
       <menu class="sub-menu" v-show="showMenu === 'view'">
         <li class="sub-menu__item" @click="handleClick('cmd.showBookmarks')">
           <span class="sub-menu__item__check">
-            <span v-if="globalState.showBookmarksOnly">✓</span>
+            <i class="fa fa-check" v-if="globalState.showBookmarksOnly"></i>
           </span>
           <span class="sub-menu__item__text">Show bookmarks only</span>
           <span class="sub-menu__item__binding">{{ ctrlCmd }}B</span>
@@ -41,13 +41,13 @@
       <menu class="sub-menu" v-show="showMenu === 'theme'">
         <li class="sub-menu__item" @click="handleClick('cmd.theme', 'default')">
           <span class="sub-menu__item__check">
-            <span v-if="globalState.themeName === 'default'">✓</span>
+            <i class="fa fa-check" v-if="globalState.themeName === 'default'"></i>
           </span>
           <span class="sub-menu__item__text">Default</span>
         </li>
         <li class="sub-menu__item" @click="handleClick('cmd.theme', 'dark')">
           <span class="sub-menu__item__check">
-            <span v-if="globalState.themeName === 'dark'">✓</span>
+            <i class="fa fa-check" v-if="globalState.themeName === 'dark'"></i>
           </span>
           <span class="sub-menu__item__text">Dark</span>
         </li>
@@ -136,7 +136,7 @@ export default {
 .sub-menu__item {
   display: grid;
   grid-template-areas: "check text binding";
-  grid-template-columns: 1rem 1fr auto;
+  grid-template-columns: 1.5rem 1fr auto;
   width: 100%;
   padding-right: .5rem;
 }

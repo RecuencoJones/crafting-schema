@@ -243,6 +243,7 @@ materials:
 
   archaeology:
     RUBAT_CRYSTAL:
+      name: Rubat Crystal
       grade: 1
       type: Power Crystal
       quality: green
@@ -250,6 +251,7 @@ materials:
       - Archaeology Gathering
       - Archaeology Mission
     NEXTOR_CRYSTAL:
+      name: Nextor Crystal
       grade: 2
       type: Power Crystal
       quality: green
@@ -257,6 +259,7 @@ materials:
       - Archaeology Gathering
       - Archaeology Mission
     OPILA_CRYSTAL:
+      name: Opila Crystal
       grade: 3
       type: Power Crystal
       quality: green
@@ -336,18 +339,21 @@ materials:
       quality: purple
 
     LOST_ARTIFACT_FRAGMENT:
+      name: Lost Artifact Fragment
       type: Artifact Fragment
       grade: 1
       quality: green
       from:
       - Archaeology Mission
     SACRED_ARTIFACT_FRAGMENT:
+      name: Sacred Artifact Fragment
       type: Artifact Fragment
       grade: 2
       quality: green
       from:
       - Archaeology Mission
     ANCIENT_ARTIFACT_FRAGMENT:
+      name: Ancient Artifact Fragment
       type: Artifact Fragment
       grade: 3
       quality: green
@@ -368,49 +374,56 @@ materials:
       from:
       - Archaeology Mission
     PRIMEVAL_ARTIFACT_FRAGMENT:
-      name: Hypertech Artifact Fragment
+      name: Primeval Artifact Fragment
       type: Artifact Fragment
       grade: 6
       quality: green
       from:
       - Archaeology Mission
     PRIMORDIAL_ARTIFACT_FRAGMENT:
+      name: Primordial Artifact Fragment
       type: Artifact Fragment
       grade: 7
       quality: green
       from:
       - Archaeology Mission
     ENIGMATIC_ARTIFACT_FRAGMENT:
+      name: Enigmatic Artifact Fragment
       type: Artifact Fragment
       grade: 8
       quality: green
       from:
       - Archaeology Mission
     GLEAMING_ALIEN_FRAGMENT:
+      name: Gleaming Artifact Fragment
       type: Artifact Fragment
       grade: 9
       quality: green
       from:
       - Archaeology Mission
     IRIDESCENT_ARTIFACT_FRAGMENT:
+      name: Iridescent Artifact Fragment
       type: Artifact Fragment
       grade: 10
       quality: green
       from:
       - Archaeology Mission
     PREMIUM_LUSTROUS_ARTIFACT_FRAGMENT:
+      name: Premium Lustrous Artifact Fragment
       type: Artifact Fragment
       grade: 11
       quality: green
       from:
       - Archaeology Mission
     PROTOTYPE_LUSTROUS_ARTIFACT_FRAGMENT:
+      name: Prototype Lustrous Artifact Fragment
       type: Artifact Fragment
       grade: 11
       quality: blue
       from:
       - Archaeology Mission
     ARTIFACT_LUSTROUS_ARTIFACT_FRAGMENT:
+      name: Artifact Lustrous Artifact Fragment
       type: Artifact Fragment
       grade: 11
       quality: purple

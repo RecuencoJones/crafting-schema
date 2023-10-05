@@ -21,10 +21,11 @@
           <div class="overflow">
             <template v-for="category of Object.keys(allProducts)" :key="category">
               <div v-if="Object.values(filteredProducts[category] || {}).length">
-                <h4>{{ category }}</h4>
+                <h4 style="text-transform: capitalize">{{ category }}</h4>
                 <RecipeItem
                   v-for="(product, key) of filteredProducts[category]"
                   :key="key"
+                  :id="key"
                   :item="product"
                   :capabilities="{ bookmark: true }"
                   @bookmark="handleBookmark(key)" />
@@ -90,8 +91,7 @@ export default {
       search: '',
       schema: defaultSchema,
       updatedSchema: null,
-      allProducts: {},
-      bookmarks: new Set()
+      allProducts: {}
     }
   },
 
@@ -100,7 +100,7 @@ export default {
       return (this.search || this.globalState.showBookmarksOnly)
         ? Object.entries(this.allProducts).reduce((accum, [ category, products ]) => {
           accum[category] = Object.entries(products || {}).reduce((accum, [ id, product ]) => {
-            if (this.globalState.showBookmarksOnly && !this.bookmarks.has(id)) {
+            if (this.globalState.showBookmarksOnly && !this.globalState.bookmarks.has(id)) {
               return accum;
             }
 
@@ -150,8 +150,8 @@ export default {
       const bookmarks = await get('bookmarks');
 
       if (bookmarks) {
-        this.bookmarks = bookmarks;
-        this.globalState.showBookmarksOnly = !!this.bookmarks.size;
+        this.globalState.bookmarks = bookmarks;
+        this.globalState.showBookmarksOnly = !!this.globalState.bookmarks.size;
       }
     },
 
@@ -276,13 +276,13 @@ export default {
       this.globalState.showBookmarksOnly = !this.globalState.showBookmarksOnly;
     },
     handleBookmark(productKey) {
-      if (this.bookmarks.has(productKey)) {
-        this.bookmarks.delete(productKey);
+      if (this.globalState.bookmarks.has(productKey)) {
+        this.globalState.bookmarks.delete(productKey);
       } else {
-        this.bookmarks.add(productKey);
+        this.globalState.bookmarks.add(productKey);
       }
 
-      set('bookmarks', toRaw(this.bookmarks));
+      set('bookmarks', toRaw(this.globalState.bookmarks));
     },
     handleCommand({ command, args }) {
       switch (command) {
