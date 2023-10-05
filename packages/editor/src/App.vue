@@ -196,6 +196,13 @@ export default {
     async handleIgnoreLastFile() {
       this.globalState.lastFileHandle = null;
     },
+
+    async handleLoadExample() {
+      const r = await fetch('https://raw.githubusercontent.com/RecuencoJones/crafting-schema/main/packages/schema/examples/swtor.yaml');
+
+      this.schema = await r.text();
+    },
+
     async handleOpen() {
       const [fileHandle] = await window.showOpenFilePicker?.({
         types: [
@@ -286,6 +293,8 @@ export default {
     },
     handleCommand({ command, args }) {
       switch (command) {
+        case 'cmd.loadExample':
+          return this.handleLoadExample();
         case 'cmd.open':
           return this.handleOpen();
         case 'cmd.openLast':

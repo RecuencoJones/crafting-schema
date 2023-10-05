@@ -6,6 +6,10 @@
     <nav class="top-menu__item" @click="clicked = 'file'" @mouseenter="hovered = 'file'" @mouseleave="hovered = null">
       <span>File</span>
       <menu class="sub-menu" v-show="showMenu === 'file'">
+        <li class="sub-menu__item" @click="handleClick('cmd.loadExample')">
+          <span class="sub-menu__item__text">Load example</span>
+          <span class="sub-menu__item__binding"></span>
+        </li>
         <li class="sub-menu__item" @click="handleClick('cmd.open')">
           <span class="sub-menu__item__text">Open...</span>
           <span class="sub-menu__item__binding">{{ ctrlCmd }}O</span>
@@ -28,7 +32,7 @@
       <span>View</span>
       <menu class="sub-menu" v-show="showMenu === 'view'">
         <li class="sub-menu__item" @click="handleClick('cmd.showBookmarks')">
-          <span class="sub-menu__item__check">
+          <span class="sub-menu__item__icon">
             <i class="fa fa-check" v-if="globalState.showBookmarksOnly"></i>
           </span>
           <span class="sub-menu__item__text">Show bookmarks only</span>
@@ -40,16 +44,27 @@
       <span>Theme</span>
       <menu class="sub-menu" v-show="showMenu === 'theme'">
         <li class="sub-menu__item" @click="handleClick('cmd.theme', 'default')">
-          <span class="sub-menu__item__check">
+          <span class="sub-menu__item__icon">
             <i class="fa fa-check" v-if="globalState.themeName === 'default'"></i>
           </span>
           <span class="sub-menu__item__text">Default</span>
         </li>
         <li class="sub-menu__item" @click="handleClick('cmd.theme', 'dark')">
-          <span class="sub-menu__item__check">
+          <span class="sub-menu__item__icon">
             <i class="fa fa-check" v-if="globalState.themeName === 'dark'"></i>
           </span>
           <span class="sub-menu__item__text">Dark</span>
+        </li>
+      </menu>
+    </nav>
+    <nav class="top-menu__item" @mouseenter="hovered = 'about'" @mouseleave="hovered = null">
+      <span>About</span>
+      <menu class="sub-menu" v-show="showMenu === 'about'">
+        <li class="sub-menu__item" @click="handleOpenGitHub">
+          <span class="sub-menu__item__icon">
+            <i class="fa-brands fa-github"></i>
+          </span>
+          <span class="sub-menu__item__text">View on GitHub</span>
         </li>
       </menu>
     </nav>
@@ -84,6 +99,10 @@ export default {
   methods: {
     handleClick(command, ...args) {
       this.$emit('command', { command, args });
+    },
+
+    handleOpenGitHub() {
+      open('https://github.com/RecuencoJones/crafting-schema', '_blank');
     },
 
     close() {
@@ -135,7 +154,7 @@ export default {
 
 .sub-menu__item {
   display: grid;
-  grid-template-areas: "check text binding";
+  grid-template-areas: "icon text binding";
   grid-template-columns: 1.5rem 1fr auto;
   width: 100%;
   padding-right: .5rem;
@@ -160,8 +179,8 @@ export default {
   text-align: right;
 }
 
-.sub-menu__item__check {
-  grid-area: check;
+.sub-menu__item__icon {
+  grid-area: icon;
   width: 1rem;
   font-size: 11px;
   align-self: center;
