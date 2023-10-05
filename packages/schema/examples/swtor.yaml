@@ -15,51 +15,81 @@ materials:
       type: Crafting Material
       grade: 2
       quality: white
+      from:
+      - Crew Skill Vendor
+      - Archaeology Mission
     DEMICOT_SILK:
       name: Demicot Silk
       type: Crafting Material
       grade: 3
       quality: white
+      from:
+      - Crew Skill Vendor
+      - Archaeology Mission
     BROCART_FILAMENTS:
       name: Brocart Filaments
       type: Crafting Material
       grade: 4
       quality: white
+      from:
+      - Crew Skill Vendor
+      - Archaeology Mission
     ZEYD_CLOTH:
       name: Zeyd-Cloth
       type: Crafting Material
       grade: 5
       quality: white
+      from:
+      - Crew Skill Vendor
+      - Archaeology Mission
     CORTOSIS_SUBSTRATE:
       name: Cortosis Substrate
       type: Crafting Material
       grade: 6
       quality: white
+      from:
+      - Crew Skill Vendor
+      - Archaeology Mission
     CORUNDUM_POWER:
       name: Corundum Power
       type: Crafting Material
       grade: 7
       quality: white
+      from:
+      - Crew Skill Vendor
+      - Archaeology Mission
     ZOOSHA_SOLUTION:
       name: Zoosha Solution
       type: Crafting Material
       grade: 8
       quality: white
+      from:
+      - Crew Skill Vendor
+      - Archaeology Mission
     CRANORAN_THREAD:
       name: Cranoran Thread
       type: Crafting Material
       grade: 9
       quality: white
+      from:
+      - Crew Skill Vendor
+      - Archaeology Mission
     TRAVELLA_CLOTH:
       name: Travella Cloth
       type: Crafting Material
       grade: 10
       quality: white
+      from:
+      - Crew Skill Vendor
+      - Archaeology Mission
     STANDARD_VEDA_CLOTH:
       name: Standard Veda Cloth
       type: Crafting Material
       grade: 11
       quality: white
+      from:
+      - Crew Skill Vendor
+      - Archaeology Mission
     PREMIUM_VEDA_CLOTH:
       name: Premium Veda Cloth
       type: Crafting Material
@@ -71,38 +101,52 @@ materials:
       grade: 11
       quality: blue
 
+    AUGMENTATION_COMPONENT_MK_5:
+      name: Augmentation Component MK-5
+      type: Augmentation Component
+      grade: 6
+      quality: green
+      from:
+      - Deconstruct Grade 6 Crafter Items
+
   slicing:
     POWER_TUBE:
+      name: Power Tube
       type: Sliced Tech Part
       grade: 1
       quality: blue
       from:
       - Slicing Mission
     MEMORY_CORE:
+      name: Memory Core
       type: Sliced Tech Part
       grade: 1
       quality: purple
       from:
       - Slicing Mission
     AUGMENTATION_CHIP:
+      name: Augmentation Chip
       type: Sliced Tech Part
       grade: 2
       quality: blue
       from:
       - Slicing Mission
     CYBERNETIC_INTERFACE_JACK:
+      name: Cybernetic Interface Jack
       type: Sliced Tech Part
       grade: 2
       quality: purple
       from:
       - Slicing Mission
     AUGMENT_MODIFICATION_ENHANCER:
+      name: Augment Modification Enhancer
       type: Sliced Tech Part
       grade: 3
       quality: blue
       from:
       - Slicing Mission
     POWER_CAPACITOR:
+      name: Power Capacitor
       type: Sliced Tech Part
       grade: 3
       quality: purple
@@ -116,19 +160,21 @@ materials:
       from:
       - Slicing Mission
     VACIERITE_MEMORY_CORE:
-      name: Vacierite
+      name: Vacierite Memory Core
       type: Sliced Tech Part
       grade: 4
       quality: purple
       from:
       - Slicing Mission
     ENERGY_CONVERTER:
+      name: Energy Converter
       type: Sliced Tech Part
       grade: 5
       quality: blue
       from:
       - Slicing Mission
     LANTHANIDE_MODULATOR:
+      name: Lanthanide Modulator
       type: Sliced Tech Part
       grade: 5
       quality: purple
@@ -226,13 +272,15 @@ materials:
       - Archaeology Gathering
       - Archaeology Mission
     DAMIND_CRYSTAL:
+      name: Damind Crystal
       type: Power Crystal
       grade: 5
       quality: green
       from:
-      - Archaeology Gathering
-      - Archaeology Mission
+      - Damind Crystal Formation
+      - Level 5 Archaeology Mission
     UPARI_CRYSTAL:
+      name: Upari Crystal
       type: Power Crystal
       grade: 6
       quality: green
@@ -240,6 +288,7 @@ materials:
       - Archaeology Gathering
       - Archaeology Mission
     CARBONIC_CRYSTAL:
+      name: Carbonic Crystal
       type: Power Crystal
       grade: 7
       quality: green
@@ -247,6 +296,7 @@ materials:
       - Archaeology Gathering
       - Archaeology Mission
     RUUSAN_CRYSTAL:
+      name: Ruusan Crystal
       type: Power Crystal
       grade: 8
       quality: green
@@ -254,6 +304,7 @@ materials:
       - Archaeology Gathering
       - Archaeology Mission
     GLEAMING_PHOND_CRYSTAL:
+      name: Gleaming Phond Crystal
       type: Power Crystal
       grade: 9
       quality: green
@@ -261,6 +312,7 @@ materials:
       - Archaeology Gathering
       - Archaeology Mission
     IRIDESCENT_BONDAR_CRYSTAL:
+      name: Iridescent Bondar Crystal
       type: Power Crystal
       grade: 10
       quality: green
@@ -268,14 +320,17 @@ materials:
       - Archaeology Gathering
       - Archaeology Mission
     PREMIUM_LUSTROUS_BONDAR_CRYSTAL:
+      name: Premium Lustrous Bondar Crystal
       type: Power Crystal
       grade: 11
       quality: green
     PROTOTYPE_LUSTROUS_BONDAR_CRYSTAL:
+      name: Prototype Lustrous Bondar Crystal
       type: Power Crystal
       grade: 11
       quality: blue
     ARTIFACT_LUSTROUS_BONDAR_CRYSTAL:
+      name: Artifact Lustrous Bondar Crystal
       type: Power Crystal
       grade: 11
       quality: purple
@@ -368,120 +423,129 @@ materials:
       grade: 1
       quality: blue
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     CYRENE_SILK:
       type: Luxury Fabric
       grade: 1
       quality: purple
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     LASHAA_SILK:
       type: Luxury Fabric
       grade: 2
       quality: blue
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     SHIMMERSILK:
       type: Luxury Fabric
       grade: 2
       quality: purple
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     DRAMASSIAN_SILK:
       type: Luxury Fabric
       grade: 3
       quality: blue
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     KILLIK_SILK:
       type: Luxury Fabric
       grade: 3
       quality: purple
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     SEPTSILK:
       name: Septsilk
       type: Luxury Fabric
       grade: 4
       quality: blue
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     RODIAN_FLAME_SILK:
       type: Luxury Fabric
       grade: 4
       quality: purple
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     VINE_SILK:
+      name: Vine Silk
       type: Luxury Fabric
       grade: 5
       quality: blue
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     SAAVA_SILK:
       type: Luxury Fabric
       grade: 5
       quality: purple
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     NANOSILK:
       type: Luxury Fabric
       grade: 6
       quality: blue
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     DENEBRILLAN_STAR_SILK:
       type: Luxury Fabric
       grade: 6
       quality: purple
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     HYPERCLOTH:
       type: Luxury Fabric
       grade: 7
       quality: blue
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     NANITE_THREADED_CLOTH:
       type: Luxury Fabric
       grade: 7
       quality: purple
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     VEDA_CLOTH:
       type: Luxury Fabric
       grade: 8
       quality: blue
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     OTTEGAN_SILK:
       type: Luxury Fabric
       grade: 8
       quality: purple
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     CHARGED_HYPERCLOTH:
       type: Luxury Fabric
       grade: 9
       quality: blue
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     ZAKUULAN_SILK:
       type: Luxury Fabric
       grade: 9
       quality: purple
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     ROMEX:
       type: Luxury Fabric
       grade: 10
       quality: blue
       from:
-      - Treasure Hunting Mission
+      - Underworld Trading Mission
     DREAMSILK:
       type: Luxury Fabric
       grade: 10
       quality: purple
+      from:
+      - Underworld Trading Mission
+
+  treasure_hunting:
+    PRISMATIC_CRYSTAL:
+      name: Prismatic Crystal
+      type: Gemstone
+      grade: 5
       from:
       - Treasure Hunting Mission
 
@@ -668,6 +732,27 @@ products:
       - item:
           $ref: '#/materials/slicing/LANTHANIDE_MODULATOR'
         count: 1
+
+    WAR_SUPPLIES_HOLOCRON_OF_STRATEGY:
+      name: 'War Supplies: Holocron of Strategy'
+      type: War Supply
+      quality: white
+      recipe:
+      - item:
+          $ref: '#/products/artifice/FIRKRANN_ARTIFICE_BONDED_ATTACHMENT'
+        count: 6
+      - item:
+          $ref: '#/products/artifice/UPARI_ARTIFICE_BONDED_ATTACHMENT'
+        count: 4
+      - item:
+          $ref: '#/products/artifice/RUUSAN_ARTIFICE_BONDED_ATTACHMENT'
+        count: 4
+      - item:
+          $ref: '#/products/artifice/GLEAMING_ARTIFICE_BONDED_ATTACHMENT'
+        count: 4
+      - item:
+          $ref: '#/products/artifice/IRIDESCENT_ARTIFICE_BONDED_ATTACHMENT'
+        count: 4
 
   synthweaving:
     RUBAT_SYNTH_BONDED_ATTACHMENT:
@@ -869,3 +954,16 @@ products:
       - item:
           $ref: '#/products/synthweaving/DAMIND_SYNTH_BONDED_ATTACHMENT'
         count: 2
+
+    AUGMENTATION_SLOT_MK_5:
+      name: Augmentation Slot MK-5
+      type: Augmentation Slot
+      grade: 6
+      quality: blue
+      recipe:
+      - item:
+          $ref: '#/products/synthweaving/UPARI_SYNTH_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/generic/AUGMENTATION_COMPONENT_MK_5'
+        count: 10

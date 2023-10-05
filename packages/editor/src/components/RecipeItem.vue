@@ -8,8 +8,16 @@
       </div>
       <div class="recipe-item__main__ingredient">
         <div>{{ item.name }}</div>
-        <div v-if="item.type">Type: {{ item.type }}</div>
-        <div v-if="item.grade">Grade: {{ item.grade }}</div>
+        <div class="recipe-item__main__ingredient__type" v-if="item.type">
+          <span v-if="item.grade">Grade {{ item.grade }}</span>
+          {{ item.type }}
+        </div>
+        <div class="recipe-item__main__ingredient__from" v-if="item.from?.length">
+          Obtained from: {{ item.from.join(', ') }}
+        </div>
+        <div class="recipe-item__main__ingredient__level" v-if="item.level">
+          Requires level {{ item.level }}
+        </div>
       </div>
       <div class="recipe-item__main__count" v-if="Number.isInteger(count)">{{ count }}x</div>
       <div class="recipe-item__main__bookmark" v-if="capabilities?.bookmark">
@@ -71,6 +79,22 @@ button {
   flex: 1;
   padding-top: .25rem;
   padding-left: .25rem;
+}
+
+.recipe-item__main__ingredient__type {
+  font-size: 11px;
+  font-style: italic;
+}
+
+.recipe-item__main__ingredient__from {
+  font-size: 11px;
+}
+
+.recipe-item__main__ingredient__level {
+  font-size: 11px;
+  text-align: right;
+  margin-top: .25rem;
+  padding-right: .5rem;
 }
 
 .recipe-item__recipe {

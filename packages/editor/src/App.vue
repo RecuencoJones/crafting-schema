@@ -230,6 +230,10 @@ export default {
         return this.handleSaveNew();
       }
 
+      if (!this.updatedSchema) {
+        return;
+      }
+
       const writable = await this.fileHandle.createWritable();
 
       await writable.write(this.updatedSchema);
