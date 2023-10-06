@@ -561,6 +561,13 @@ materials:
       grade: 5
       from:
       - Treasure Hunting Mission
+    LORRDIAN_GEMSTONE:
+      name: Lorrdian Gemstone
+      type: Gemstone
+      grade: 6
+      from:
+      - Treasure Hunting Mission
+
 
 products:
   artifice:
@@ -744,6 +751,24 @@ products:
         count: 1
       - item:
           $ref: '#/materials/slicing/LANTHANIDE_MODULATOR'
+        count: 1
+    ADVANCED_VERSATILE_LIGHTSABER_HILT_25:
+      name: Advanced Versatile Lightsaber Hilt 25
+      type: Lightsaber Hilt
+      quality: purple
+      level: 48
+      recipe:
+      - item:
+          $ref: '#/products/artifice/UPARI_ARTIFICE_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/treasure_hunting/LORRDIAN_GEMSTONE'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/SUBELECTRONIC_DATA_MODULE'
+        count: 1
+      - item:
+          $ref: '#/materials/slicing/ADVANCED_NEURAL_AUGMENTOR'
         count: 1
 
     WAR_SUPPLIES_HOLOCRON_OF_STRATEGY:
@@ -967,6 +992,42 @@ products:
       - item:
           $ref: '#/products/synthweaving/DAMIND_SYNTH_BONDED_ATTACHMENT'
         count: 2
+    ADVANCED_VERSATILE_ARMORING_25:
+      name: Advanced Versatile Armoring 25
+      type: Armoring
+      level: 48
+      quality: purple
+      recipe:
+      - item:
+          $ref: '#/products/synthweaving/CARBONIC_SYNTH_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/HYPERCLOTH'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/BIO_MECHANICAL_INTERFACE_CHIP'
+        count: 1
+      - item:
+          $ref: '#/materials/slicing/THERMAL_REGULATOR'
+        count: 1
+    ADVANCED_VERSATILE_ARMORING_29:
+      name: Advanced Versatile Armoring 29
+      type: Armoring
+      level: 52
+      quality: purple
+      recipe:
+      - item:
+          $ref: '#/products/synthweaving/CARBONIC_SYNTH_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/HYPERCLOTH'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/BIO_MECHANICAL_INTERFACE_CHIP'
+        count: 1
+      - item:
+          $ref: '#/materials/slicing/THERMAL_REGULATOR'
+        count: 1
 
     AUGMENTATION_SLOT_MK_5:
       name: Augmentation Slot MK-5
@@ -975,8 +1036,32 @@ products:
       quality: blue
       recipe:
       - item:
-          $ref: '#/products/synthweaving/UPARI_SYNTH_BONDED_ATTACHMENT'
-        count: 2
+          $ref: '#/materials/underworld_trading/VINE_SILK'
+        count: 4
+      - item:
+          $ref: '#/materials/slicing/ENERGY_CONVERTER'
+        count: 4
+      - item:
+          $ref: '#/products/synthweaving/DAMIND_SYNTH_BONDED_ATTACHMENT'
+        count: 4
       - item:
           $ref: '#/materials/generic/AUGMENTATION_COMPONENT_MK_5'
+        count: 10
+    AUGMENTATION_SLOT_MK_6:
+      name: Augmentation Slot MK-6
+      type: Augmentation Slot
+      grade: 6
+      quality: blue
+      recipe:
+      - item:
+          $ref: '#/materials/underworld_trading/NANOSILK'
+        count: 4
+      - item:
+          $ref: '#/materials/slicing/SUBELECTRONIC_DATA_MODULE'
+        count: 4
+      - item:
+          $ref: '#/products/synthweaving/UPARI_SYNTH_BONDED_ATTACHMENT'
+        count: 4
+      - item:
+          $ref: '#/materials/generic/AUGMENTATION_COMPONENT_MK_6'
         count: 10
