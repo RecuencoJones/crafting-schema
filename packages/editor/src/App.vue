@@ -48,48 +48,20 @@ import * as _ from 'lodash';
 import { toRaw } from 'vue';
 import { get, set, del } from 'idb-keyval';
 import hotkeys from 'hotkeys-js';
-import { saveAs } from 'file-saver';
-import { table } from 'table';
 import RecipeItem from './components/RecipeItem.vue';
 import Editor from './components/Editor.vue';
 import TopMenu from './components/TopMenu.vue';
 import BottomAlert from './components/BottomAlert.vue';
 import Splash from './components/Splash.vue';
 import { useGlobalState } from './state';
-
-async function verifyPermission(fileHandle) {
-  const options = {
-    mode: 'readwrite'
-  };
-
-  if ((await fileHandle.queryPermission(options)) === 'granted') {
-    return;
-  }
-  if ((await fileHandle.requestPermission(options)) === 'granted') {
-    return;
-  }
-
-  throw new Error('Cannot open file');
-}
-
-function collectMaterials(materials, product, amount = 1) {
-  product.recipe?.forEach(({ item, count }) => {
-    if (item.recipe) {
-      collectMaterials(materials, item, count);
-    } else {
-      materials.set(item.name, {
-        item,
-        count: (amount * count) + (materials.get(item.name)?.count || 0)
-      });
-    }
-  });
-}
+import { verifyPermission } from './services/files';
+import { exportCSV, exportTable } from './services/export';
 
 const defaultSchema = '# open a file or start editing\nproducts: {}';
 
 export default {
   setup() {
-    return useGlobalState()
+    return useGlobalState();
   },
   components: {
     Editor,
@@ -315,50 +287,25 @@ export default {
       }
     },
     handleExportCSV() {
+      if (!this.selected.size) {
+        return;
+      }
+
       const products = Array.from(this.selected.values());
 
-      for (const product of products) {
-        const materials = new Map();
-        const lines = [];
-
-        collectMaterials(materials, product);
-
-        lines.push([ 'qty', 'name', 'type', 'grade', 'from' ].join(';'));
-
-        for (const { item, count } of materials.values()) {
-          lines.push([ count, item.name, item.type, item.grade, item.from?.join(', ') ].join(';'));
-        }
-
-        const csv = lines.join('\n');
-
-        const blob = new Blob([ csv ], { type: 'text/plain;charset=utf-8' });
-
-        saveAs(blob, `${ product.name.replaceAll(' ', '_') }.materials-bom-export.csv`);
-      }
+      exportCSV(products);
     },
     handleExportTable() {
+      if (!this.selected.size) {
+        return;
+      }
+
       const products = Array.from(this.selected.values());
 
-      for (const product of products) {
-        const materials = new Map();
-        const lines = [];
-
-        collectMaterials(materials, product);
-
-        lines.push([ 'qty', 'name', 'type', 'grade', 'from' ]);
-
-        for (const { item, count } of materials.values()) {
-          lines.push([ count, item.name, item.type, item.grade, item.from?.join(', ') ]);
-        }
-
-        const str = table(lines, {
-          drawVerticalLine: () => false
-        });
-
-        const blob = new Blob([ str ], { type: 'text/plain;charset=utf-8' });
-
-        saveAs(blob, `${ product.name.replaceAll(' ', '_') }.materials-table-export.txt`);
-      }
+      exportTable(products);
+    },
+    handleOpenGitHub() {
+      open('https://github.com/RecuencoJones/crafting-schema', '_blank');
     },
     handleCommand({ command, args }) {
       switch (command) {
@@ -380,6 +327,8 @@ export default {
           return this.handleExportCSV();
         case 'cmd.exportTable':
           return this.handleExportTable();
+        case 'cmd.openGitHub':
+          return this.handleOpenGitHub();
       }
     }
   }

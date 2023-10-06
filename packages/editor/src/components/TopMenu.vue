@@ -3,112 +3,108 @@
     <nav class="top-menu__item">
       <b>CraftingSchema</b>
     </nav>
-    <nav class="top-menu__item" @click="clicked = 'file'" @mouseenter="hovered = 'file'" @mouseleave="hovered = null">
-      <span>File</span>
-      <menu class="sub-menu" v-show="showMenu === 'file'">
-        <li class="sub-menu__item" @click="handleClick('cmd.loadExample')">
-          <span class="sub-menu__item__text">Load example</span>
-          <span class="sub-menu__item__binding"></span>
-        </li>
-        <li class="sub-menu__item" @click="handleClick('cmd.open')">
-          <span class="sub-menu__item__icon">
-            <i class="fa-regular fa-folder-open"></i>
-          </span>
-          <span class="sub-menu__item__text">Open...</span>
-          <span class="sub-menu__item__binding">{{ ctrlCmd }}O</span>
-        </li>
-        <li class="sub-menu__item" :class="{ 'sub-menu__item--disabled': !globalState.lastFileHandle }" @click="globalState.lastFileHandle && handleClick('cmd.openLast')">
-          <span class="sub-menu__item__text">Open last</span>
-          <span class="sub-menu__item__binding">{{ ctrlCmd }}⇧O</span>
-        </li>
-        <li class="sub-menu__item" @click="handleClick('cmd.save')">
-          <span class="sub-menu__item__icon">
-            <i class="fa-regular fa-floppy-disk"></i>
-          </span>
-          <span class="sub-menu__item__text">Save</span>
-          <span class="sub-menu__item__binding">{{ ctrlCmd }}S</span>
-        </li>
-        <li class="sub-menu__item" @click="handleClick('cmd.close')">
-          <span class="sub-menu__item__icon">
-            <i class="fa-solid fa-xmark"></i>
-          </span>
-          <span class="sub-menu__item__text">Close</span>
-          <span class="sub-menu__item__binding"></span>
-        </li>
-      </menu>
-    </nav>
-    <nav class="top-menu__item" @click="clicked = 'view'" @mouseenter="hovered = 'view'" @mouseleave="hovered = null">
-      <span>View</span>
-      <menu class="sub-menu" v-show="showMenu === 'view'">
-        <li class="sub-menu__item" @click="handleClick('cmd.showBookmarks')">
-          <span class="sub-menu__item__icon">
-            <i class="fa fa-check" v-if="globalState.showBookmarksOnly"></i>
-          </span>
-          <span class="sub-menu__item__text">Show bookmarks only</span>
-          <span class="sub-menu__item__binding">{{ ctrlCmd }}B</span>
-        </li>
-        <li class="sub-menu__item" @click="handleClick('cmd.exportCSV')">
-          <span class="sub-menu__item__icon">
-            <i class="fa-solid fa-file-csv"></i>
-          </span>
-          <span class="sub-menu__item__text">Export materials BOM</span>
-        </li>
-        <li class="sub-menu__item" @click="handleClick('cmd.exportTable')">
-          <span class="sub-menu__item__icon">
-            <i class="fa-solid fa-table"></i>
-          </span>
-          <span class="sub-menu__item__text">Export materials table</span>
-        </li>
-      </menu>
-    </nav>
-    <nav class="top-menu__item" @click="clicked = 'theme'" @mouseenter="hovered = 'theme'" @mouseleave="hovered = null">
-      <span>Theme</span>
-      <menu class="sub-menu" v-show="showMenu === 'theme'">
-        <li class="sub-menu__item" @click="handleClick('cmd.theme', 'default')">
-          <span class="sub-menu__item__icon">
-            <i class="fa fa-check" v-if="globalState.themeName === 'default'"></i>
-          </span>
-          <span class="sub-menu__item__text">Default</span>
-        </li>
-        <li class="sub-menu__item" @click="handleClick('cmd.theme', 'dark')">
-          <span class="sub-menu__item__icon">
-            <i class="fa fa-check" v-if="globalState.themeName === 'dark'"></i>
-          </span>
-          <span class="sub-menu__item__text">Dark</span>
-        </li>
-      </menu>
-    </nav>
-    <nav class="top-menu__item" @mouseenter="hovered = 'about'" @mouseleave="hovered = null">
-      <span>About</span>
-      <menu class="sub-menu" v-show="showMenu === 'about'">
-        <li class="sub-menu__item" @click="handleOpenGitHub">
-          <span class="sub-menu__item__icon">
-            <i class="fa-brands fa-github"></i>
-          </span>
-          <span class="sub-menu__item__text">View on GitHub</span>
-        </li>
-      </menu>
-    </nav>
+    <template v-for="menuItem of menu">
+      <TopMenuItem :menu="menuItem" @command="handleCommand" />
+    </template>
   </header>
 </template>
 
 <script>
 import { useGlobalState } from '../state';
+import TopMenuItem from './TopMenuItem.vue';
+
 
 export default {
+  components: {
+    TopMenuItem
+  },
   setup() {
     return useGlobalState();
   },
   emits: [ 'command' ],
-  data() {
-    return {
-      clicked: false,
-      hovered: false
-    };
-  },
   computed: {
-    showMenu() {
-      return this.selected || this.hovered;
+    menu() {
+      return [
+        {
+          title: 'File',
+          children: [
+            {
+              title: 'Load example',
+              command: 'cmd.loadExample'
+            },
+            {
+              title: 'Open...',
+              icon: 'fa-regular fa-folder-open',
+              binding: `${ this.ctrlCmd }O`,
+              command: 'cmd.open'
+            },
+            {
+              title: 'Open last',
+              binding: `${ this.ctrlCmd }⇧O`,
+              disabled: !this.globalState.lastFileHandle
+            },
+            {
+              title: 'Save',
+              icon: 'fa-regular fa-floppy-disk',
+              binding: `${ this.ctrlCmd }S`,
+              command: 'cmd.save'
+            },
+            {
+              title: 'Close',
+              icon: 'fa-solid fa-xmark',
+              command: 'cmd.close'
+            }
+          ]
+        },
+        {
+          title: 'View',
+          children: [
+            {
+              title: 'Show bookmarks only',
+              icon: this.globalState.showBookmarksOnly ? 'fa fa-check' : null,
+              binding: `${ this.ctrlCmd }B`,
+              command: 'cmd.showBookmarks'
+            },
+            {
+              title: 'Export materials BOM',
+              icon: 'fa-solid fa-file-csv',
+              command: 'cmd.exportCSV'
+            },
+            {
+              title: 'Export materials table',
+              icon: 'fa-solid fa-table',
+              command: 'cmd.exportTable'
+            }
+          ]
+        },
+        {
+          title: 'Theme',
+          children: [
+            {
+              title: 'Default',
+              icon: this.globalState.themeName === 'default' ? 'fa fa-check' : null,
+              command: 'cmd.theme',
+              args: [ 'default' ]
+            },
+            {
+              title: 'Dark',
+              icon: this.globalState.themeName === 'dark' ? 'fa fa-check' : null,
+              command: 'cmd.theme',
+              args: [ 'dark' ]
+            }
+          ]
+        },
+        {
+          title: 'About',
+          children: [
+            {
+              title: 'View on GitHub',
+              icon: 'fa-brands fa-github',
+              command: 'cmd.openGitHub'
+            }
+          ]
+        }
+      ]
     },
     isMacOS() {
       return navigator.userAgentData.platform === 'macOS';
@@ -118,17 +114,8 @@ export default {
     }
   },
   methods: {
-    handleClick(command, ...args) {
+    handleCommand({ command, args = [] }) {
       this.$emit('command', { command, args });
-    },
-
-    handleOpenGitHub() {
-      open('https://github.com/RecuencoJones/crafting-schema', '_blank');
-    },
-
-    close() {
-      this.clicked = false;
-      this.hovered = false;
     }
   }
 }
