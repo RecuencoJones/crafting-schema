@@ -38,6 +38,18 @@
           <span class="sub-menu__item__text">Show bookmarks only</span>
           <span class="sub-menu__item__binding">{{ ctrlCmd }}B</span>
         </li>
+        <li class="sub-menu__item" @click="handleClick('cmd.exportCSV')">
+          <span class="sub-menu__item__icon">
+            <i class="fa-solid fa-file-csv"></i>
+          </span>
+          <span class="sub-menu__item__text">Export materials BOM</span>
+        </li>
+        <li class="sub-menu__item" @click="handleClick('cmd.exportTable')">
+          <span class="sub-menu__item__icon">
+            <i class="fa-solid fa-table"></i>
+          </span>
+          <span class="sub-menu__item__text">Export materials table</span>
+        </li>
       </menu>
     </nav>
     <nav class="top-menu__item" @click="clicked = 'theme'" @mouseenter="hovered = 'theme'" @mouseleave="hovered = null">

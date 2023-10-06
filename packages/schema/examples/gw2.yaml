@@ -1,0 +1,18 @@
+materials:
+  basic:
+    GREEN_WOOD_PLANK:
+      name: Green Wood Plank
+      type: Crafting Material
+      from:
+      - Logs
+
+products:
+  weaponsmith:
+    WOODEN_SWORD:
+      name: Wooden Sword
+      type: Weapon
+      level: 7
+      recipe:
+      - item:
+          $ref: '#/materials/basic/GREEN_WOOD_PLANK'
+        count: 5

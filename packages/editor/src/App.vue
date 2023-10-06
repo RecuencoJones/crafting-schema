@@ -27,8 +27,9 @@
                   :key="key"
                   :id="key"
                   :item="product"
-                  :capabilities="{ bookmark: true }"
-                  @bookmark="handleBookmark(key)" />
+                  :capabilities="{ bookmark: true, select: true }"
+                  @bookmark="handleBookmark(key)"
+                  @select="handleSelect(key, product)" />
               </div>
             </template>
           </div>
@@ -47,6 +48,8 @@ import * as _ from 'lodash';
 import { toRaw } from 'vue';
 import { get, set, del } from 'idb-keyval';
 import hotkeys from 'hotkeys-js';
+import { saveAs } from 'file-saver';
+import { table } from 'table';
 import RecipeItem from './components/RecipeItem.vue';
 import Editor from './components/Editor.vue';
 import TopMenu from './components/TopMenu.vue';
@@ -67,6 +70,19 @@ async function verifyPermission(fileHandle) {
   }
 
   throw new Error('Cannot open file');
+}
+
+function collectMaterials(materials, product, amount = 1) {
+  product.recipe?.forEach(({ item, count }) => {
+    if (item.recipe) {
+      collectMaterials(materials, item, count);
+    } else {
+      materials.set(item.name, {
+        item,
+        count: (amount * count) + (materials.get(item.name)?.count || 0)
+      });
+    }
+  });
 }
 
 const defaultSchema = '# open a file or start editing\nproducts: {}';
@@ -91,7 +107,8 @@ export default {
       search: '',
       schema: defaultSchema,
       updatedSchema: null,
-      allProducts: {}
+      allProducts: {},
+      selected: new Map()
     }
   },
 
@@ -151,7 +168,6 @@ export default {
 
       if (bookmarks) {
         this.globalState.bookmarks = bookmarks;
-        this.globalState.showBookmarksOnly = !!this.globalState.bookmarks.size;
       }
     },
 
@@ -291,6 +307,59 @@ export default {
 
       set('bookmarks', toRaw(this.globalState.bookmarks));
     },
+    handleSelect(productKey, product) {
+      if (this.selected.has(productKey)) {
+        this.selected.delete(productKey);
+      } else {
+        this.selected.set(productKey, product);
+      }
+    },
+    handleExportCSV() {
+      const products = Array.from(this.selected.values());
+
+      for (const product of products) {
+        const materials = new Map();
+        const lines = [];
+
+        collectMaterials(materials, product);
+
+        lines.push([ 'qty', 'name', 'type', 'grade', 'from' ].join(';'));
+
+        for (const { item, count } of materials.values()) {
+          lines.push([ count, item.name, item.type, item.grade, item.from?.join(', ') ].join(';'));
+        }
+
+        const csv = lines.join('\n');
+
+        const blob = new Blob([ csv ], { type: 'text/plain;charset=utf-8' });
+
+        saveAs(blob, `${ product.name.replaceAll(' ', '_') }.materials-bom-export.csv`);
+      }
+    },
+    handleExportTable() {
+      const products = Array.from(this.selected.values());
+
+      for (const product of products) {
+        const materials = new Map();
+        const lines = [];
+
+        collectMaterials(materials, product);
+
+        lines.push([ 'qty', 'name', 'type', 'grade', 'from' ]);
+
+        for (const { item, count } of materials.values()) {
+          lines.push([ count, item.name, item.type, item.grade, item.from?.join(', ') ]);
+        }
+
+        const str = table(lines, {
+          drawVerticalLine: () => false
+        });
+
+        const blob = new Blob([ str ], { type: 'text/plain;charset=utf-8' });
+
+        saveAs(blob, `${ product.name.replaceAll(' ', '_') }.materials-table-export.txt`);
+      }
+    },
     handleCommand({ command, args }) {
       switch (command) {
         case 'cmd.loadExample':
@@ -307,6 +376,10 @@ export default {
           return this.handleShowBookmarks();
         case 'cmd.theme':
           return this.handleThemeChange(...args);
+        case 'cmd.exportCSV':
+          return this.handleExportCSV();
+        case 'cmd.exportTable':
+          return this.handleExportTable();
       }
     }
   }

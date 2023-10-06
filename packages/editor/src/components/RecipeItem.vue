@@ -1,14 +1,10 @@
 <template>
   <div class="recipe-item">
     <div class="recipe-item__main">
-      <div class="recipe-item__main__expand">
-        <button v-if="item.recipe && !expanded" @click="expanded = true">
-          <i class="fa fa-chevron-right"></i>
+      <div v-if="item.recipe" class="recipe-item__main__expand">
+        <button @click="expanded = !expanded">
+          <i class="fa" :class="expanded ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
         </button>
-        <button v-else-if="item.recipe && expanded" @click="expanded = false">
-          <i class="fa fa-chevron-down"></i>
-        </button>
-        <span v-else></span>
       </div>
       <div class="recipe-item__main__ingredient">
         <div class="recipe-item__main__ingredient__name">
@@ -29,6 +25,11 @@
         </div>
       </div>
       <div class="recipe-item__main__count" v-if="Number.isInteger(count)">{{ count }}x</div>
+      <div v-if="capabilities?.select" class="recipe-item__main__select">
+        <button @click="handleSelect">
+          <i class="fa-regular" :class="selected ? 'fa-square-check' : 'fa-square'"></i>
+        </button>
+      </div>
       <div class="recipe-item__main__bookmark" v-if="capabilities?.bookmark">
         <button @click="$emit('bookmark')">
           <i class="fa-bookmark" :class="bookmarked ? 'fa-solid' : 'fa-regular'"></i>
@@ -56,15 +57,23 @@ export default {
   },
   name: 'RecipeItem',
   props: [ 'id', 'count', 'item', 'capabilities' ],
-  emits: [ 'bookmark' ],
+  emits: [ 'select', 'bookmark' ],
   data() {
     return {
-      expanded: false
+      expanded: false,
+      selected: false
     };
   },
   computed: {
     bookmarked() {
       return this.globalState.bookmarks.has(this.id)
+    }
+  },
+  methods: {
+    handleSelect() {
+      this.selected = !this.selected;
+
+      this.$emit('select');
     }
   }
 };
@@ -81,14 +90,24 @@ export default {
   display: flex;
   flex-direction: row;
   width: 100%;
+  padding: .75rem;
+  box-sizing: border-box;
 }
 
-.recipe-item__main__expand {
+.recipe-item__main:hover {
+  background: #eee;
+}
+
+.recipe-item__main__expand,
+.recipe-item__main__select,
+.recipe-item__main__bookmark {
   flex: 0 0 fit-content;
   padding: .25rem;
 }
 
-.recipe-item__main__expand button {
+.recipe-item__main__expand button,
+.recipe-item__main__select button,
+.recipe-item__main__bookmark button {
   border: none;
   background: none !important;
   color: var(--global-text);
@@ -158,13 +177,6 @@ button {
 
 .recipe-item__recipe {
   padding-left: 1rem;
-}
-
-.recipe-item__main__bookmark button {
-  border: none;
-  background: none !important;
-  color: var(--global-text);
-  width: 1.5rem;
 }
 
 </style>
