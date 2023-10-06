@@ -95,11 +95,15 @@ materials:
       type: Crafting Material
       grade: 11
       quality: green
+      from:
+      - Archaeology Mission
     PROTOTYPE_VEDA_CLOTH:
       name: Prototype Veda Cloth
       type: Crafting Material
       grade: 11
       quality: blue
+      from:
+      - Archaeology Mission
 
     AUGMENTATION_COMPONENT_MK_5:
       name: Augmentation Component MK-5
@@ -108,6 +112,13 @@ materials:
       quality: green
       from:
       - Deconstruct Grade 6 Crafter Items
+    AUGMENTATION_COMPONENT_MK_6:
+      name: Augmentation Component MK-6
+      type: Augmentation Component
+      grade: 7
+      quality: green
+      from:
+      - Deconstruct Grade 7 Crafter Items
 
   slicing:
     POWER_TUBE:
@@ -181,60 +192,70 @@ materials:
       from:
       - Slicing Mission
     SUBELECTRONIC_DATA_MODULE:
+      name: Sub-electronic Data Module
       type: Sliced Tech Part
       grade: 6
       quality: blue
       from:
       - Slicing Mission
     ADVANCED_NEURAL_AUGMENTOR:
+      name: Advanced Neural Augmentor
       type: Sliced Tech Part
       grade: 6
       quality: purple
       from:
       - Slicing Mission
     BIO_MECHANICAL_INTERFACE_CHIP:
+      name: Bio-mechanical Interface Chip
       type: Sliced Tech Part
       grade: 7
       quality: blue
       from:
       - Slicing Mission
     THERMAL_REGULATOR:
+      name: Thermal Regulator
       type: Sliced Tech Part
       grade: 7
       quality: purple
       from:
       - Slicing Mission
     BIOCELL_MEMORY_CORE:
+      name: Biocell Memory Core
       type: Sliced Tech Part
       grade: 8
       quality: blue
       from:
       - Slicing Mission
     ADAPTIVE_CIRCUITRY:
+      name: Adaptive Circuitry
       type: Sliced Tech Part
       grade: 8
       quality: purple
       from:
       - Slicing Mission
     GIVIN_HYPERCALCULATOR:
+      name: Givin Hypercalculator
       type: Sliced Tech Part
       grade: 9
       quality: blue
       from:
       - Slicing Mission
     SINITEEN_INFO_SCRAPER:
+      name: Siniteen Info Scraper
       type: Sliced Tech Part
       grade: 9
       quality: purple
       from:
       - Slicing Mission
     CODE_RECOMBINATOR:
+      name: Code Recombinator
       type: Sliced Tech Part
       grade: 10
       quality: blue
       from:
       - Slicing Mission
     SIGNAL_DISRUPTOR:
+      name: Signal Disruptor
       type: Sliced Tech Part
       grade: 10
       quality: purple
@@ -244,24 +265,24 @@ materials:
   archaeology:
     RUBAT_CRYSTAL:
       name: Rubat Crystal
-      grade: 1
       type: Power Crystal
+      grade: 1
       quality: green
       from:
       - Archaeology Gathering
       - Archaeology Mission
     NEXTOR_CRYSTAL:
       name: Nextor Crystal
-      grade: 2
       type: Power Crystal
+      grade: 2
       quality: green
       from:
       - Archaeology Gathering
       - Archaeology Mission
     OPILA_CRYSTAL:
       name: Opila Crystal
-      grade: 3
       type: Power Crystal
+      grade: 3
       quality: green
       from:
       - Archaeology Gathering
@@ -327,16 +348,22 @@ materials:
       type: Power Crystal
       grade: 11
       quality: green
+      from:
+      - Archaeology Mission
     PROTOTYPE_LUSTROUS_BONDAR_CRYSTAL:
       name: Prototype Lustrous Bondar Crystal
       type: Power Crystal
       grade: 11
       quality: blue
+      from:
+      - Archaeology Mission
     ARTIFACT_LUSTROUS_BONDAR_CRYSTAL:
       name: Artifact Lustrous Bondar Crystal
       type: Power Crystal
       grade: 11
       quality: purple
+      from:
+      - Archaeology Mission
 
     LOST_ARTIFACT_FRAGMENT:
       name: Lost Artifact Fragment
@@ -432,36 +459,42 @@ materials:
 
   underworld_trading:
     SHADOWSILK:
+      name: Shadowsilk
       type: Luxury Fabric
       grade: 1
       quality: blue
       from:
       - Underworld Trading Mission
     CYRENE_SILK:
+      name: Cyrene Silk
       type: Luxury Fabric
       grade: 1
       quality: purple
       from:
       - Underworld Trading Mission
     LASHAA_SILK:
+      name: Lashaa Silk
       type: Luxury Fabric
       grade: 2
       quality: blue
       from:
       - Underworld Trading Mission
     SHIMMERSILK:
+      name: Shimmersilk
       type: Luxury Fabric
       grade: 2
       quality: purple
       from:
       - Underworld Trading Mission
     DRAMASSIAN_SILK:
+      name: Dramassian Silk
       type: Luxury Fabric
       grade: 3
       quality: blue
       from:
       - Underworld Trading Mission
     KILLIK_SILK:
+      name: Killik Silk
       type: Luxury Fabric
       grade: 3
       quality: purple
@@ -475,6 +508,7 @@ materials:
       from:
       - Underworld Trading Mission
     RODIAN_FLAME_SILK:
+      name: Rodian Flame Silk
       type: Luxury Fabric
       grade: 4
       quality: purple
@@ -488,66 +522,77 @@ materials:
       from:
       - Underworld Trading Mission
     SAAVA_SILK:
+      name: Saava Silk
       type: Luxury Fabric
       grade: 5
       quality: purple
       from:
       - Underworld Trading Mission
     NANOSILK:
+      name: Nanosilk
       type: Luxury Fabric
       grade: 6
       quality: blue
       from:
       - Underworld Trading Mission
     DENEBRILLAN_STAR_SILK:
+      name: Denebrillan Star Silk
       type: Luxury Fabric
       grade: 6
       quality: purple
       from:
       - Underworld Trading Mission
     HYPERCLOTH:
+      name: Hypercloth
       type: Luxury Fabric
       grade: 7
       quality: blue
       from:
       - Underworld Trading Mission
     NANITE_THREADED_CLOTH:
+      name: Nanite Threaded Cloth
       type: Luxury Fabric
       grade: 7
       quality: purple
       from:
       - Underworld Trading Mission
     VEDA_CLOTH:
+      name: Veda Cloth
       type: Luxury Fabric
       grade: 8
       quality: blue
       from:
       - Underworld Trading Mission
     OTTEGAN_SILK:
+      name: Ottegan Silk
       type: Luxury Fabric
       grade: 8
       quality: purple
       from:
       - Underworld Trading Mission
     CHARGED_HYPERCLOTH:
+      name: Charged Hypercloth
       type: Luxury Fabric
       grade: 9
       quality: blue
       from:
       - Underworld Trading Mission
     ZAKUULAN_SILK:
+      name: Zakuulan Silk
       type: Luxury Fabric
       grade: 9
       quality: purple
       from:
       - Underworld Trading Mission
     ROMEX:
+      name: Romex
       type: Luxury Fabric
       grade: 10
       quality: blue
       from:
       - Underworld Trading Mission
     DREAMSILK:
+      name: Dreamsilk
       type: Luxury Fabric
       grade: 10
       quality: purple

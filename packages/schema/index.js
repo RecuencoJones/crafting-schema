@@ -17,9 +17,9 @@ export async function parse(schema) {
       return {};
     }
 
-    validate(value);
-
     const resolved = await deref(value);
+
+    validate(resolved);
 
     return resolved;
   } catch(err) {

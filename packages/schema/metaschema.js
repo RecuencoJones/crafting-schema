@@ -6,6 +6,7 @@ export const metaschema = _metaschema;
 export function validate(schema) {
   return new Validator().validate(schema, metaschema, {
     throwAll: true,
-    required: true
+    required: true,
+    nestedErrors: true
   });
 }

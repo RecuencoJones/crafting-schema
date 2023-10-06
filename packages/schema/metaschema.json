@@ -1,7 +1,102 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "$defs": {
+    "material": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "number"
+        },
+        "quality": {
+          "type": "string"
+        },
+        "from": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "from"
+      ]
+    },
+
+    "product": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "number"
+        },
+        "level": {
+          "type": "number"
+        },
+        "recipe": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "item": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/product"
+                  },
+                  {
+                    "$ref": "#/$defs/material"
+                  }
+                ]
+              },
+              "count": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "item",
+              "count"
+            ]
+          }
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "recipe"
+      ]
+    }
+  },
+
   "type": "object",
   "properties": {
+    "materials": {
+      "type": "object",
+      "patternProperties": {
+        "^.+$": {
+          "type": "object",
+          "patternProperties": {
+            "^.+$": {
+              "$ref": "#/$defs/material"
+            }
+          }
+        }
+      }
+    },
+
     "products": {
       "type": "object",
       "patternProperties": {
@@ -9,26 +104,12 @@
           "type": "object",
           "patternProperties": {
             "^.+$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                },
-                "grade": {
-                  "type": "number"
-                }
-              },
-              "required": [
-                "name",
-                "type"
-              ]
+              "$ref": "#/$defs/product"
             }
           }
         }
       }
     }
-  }
+  },
+  "required": [ "products" ]
 }
