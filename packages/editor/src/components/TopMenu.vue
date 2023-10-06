@@ -11,6 +11,9 @@
           <span class="sub-menu__item__binding"></span>
         </li>
         <li class="sub-menu__item" @click="handleClick('cmd.open')">
+          <span class="sub-menu__item__icon">
+            <i class="fa-regular fa-folder-open"></i>
+          </span>
           <span class="sub-menu__item__text">Open...</span>
           <span class="sub-menu__item__binding">{{ ctrlCmd }}O</span>
         </li>
@@ -19,10 +22,16 @@
           <span class="sub-menu__item__binding">{{ ctrlCmd }}⇧O</span>
         </li>
         <li class="sub-menu__item" @click="handleClick('cmd.save')">
+          <span class="sub-menu__item__icon">
+            <i class="fa-regular fa-floppy-disk"></i>
+          </span>
           <span class="sub-menu__item__text">Save</span>
           <span class="sub-menu__item__binding">{{ ctrlCmd }}S</span>
         </li>
         <li class="sub-menu__item" @click="handleClick('cmd.close')">
+          <span class="sub-menu__item__icon">
+            <i class="fa-solid fa-xmark"></i>
+          </span>
           <span class="sub-menu__item__text">Close</span>
           <span class="sub-menu__item__binding"></span>
         </li>
@@ -167,7 +176,7 @@ export default {
 .sub-menu__item {
   display: grid;
   grid-template-areas: "icon text binding";
-  grid-template-columns: 1.5rem 1fr auto;
+  grid-template-columns: 1.5rem 1fr 4rem;
   width: 100%;
   padding-right: .5rem;
 }
