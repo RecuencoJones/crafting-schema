@@ -81,7 +81,8 @@ export default {
       schema: defaultSchema,
       updatedSchema: null,
       allProducts: {},
-      selected: new Map()
+      selected: new Map(),
+      documentHandleSave: null
     }
   },
 
@@ -145,7 +146,10 @@ export default {
     },
 
     setKeybinds() {
+      this.documentHandleSave = this.handleSave.bind(this);
+
       document.addEventListener('keydown', preventNativeSave);
+      document.addEventListener('document:save', this.documentHandleSave);
 
       hotkeys.filter = () => true;
 
@@ -162,6 +166,7 @@ export default {
     unsetKeybinds() {
       hotkeys.unbind();
       document.removeEventListener('keydown', preventNativeSave);
+      document.removeEventListener('document:save', this.documentHandleSave);
     },
 
     handleChange(value) {

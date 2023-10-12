@@ -5,5 +5,7 @@ export function isMacOS() {
 export function preventNativeSave(e) {
   if (e.code === 'KeyS' && (isMacOS() ? e.metaKey : e.ctrlKey)) {
     e.preventDefault();
+
+    document.dispatchEvent(new CustomEvent('document:save'));
   }
 }

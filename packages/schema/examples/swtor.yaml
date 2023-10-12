@@ -10,14 +10,6 @@ materials:
       from:
       - Crew Skill Vendor
       - Archaeology Mission
-    CONDUCTIVE_FLUX:
-      name: Conductive Flux
-      type: Crafting Material
-      grade: 1
-      quality: white
-      from:
-      - Crew Skill Vendor
-      - Scavenging Mission
     THERMOIONIC_GEL_SUSPENSION:
       name: Thermoionic Gel Suspension
       type: Crafting Material
@@ -112,6 +104,96 @@ materials:
       quality: blue
       from:
       - Archaeology Mission
+
+    CONDUCTIVE_FLUX:
+      name: Conductive Flux
+      type: Crafting Material
+      grade: 1
+      quality: white
+      from:
+      - Crew Skill Vendor
+      - Scavenging Mission
+    INSULATING_FLUX:
+      name: Insulating Flux
+      type: Flux
+      grade: 0
+      quality: white
+      from:
+      - Crew Skill Vendor
+      - Scavenging Mission
+    BRAZING_FLUX:
+      name: Brazing Flux
+      type: Flux
+      grade: 0
+      quality: white
+      from:
+      - Crew Skill Vendor
+      - Scavenging Mission
+    THERMOPLAST_FLUX:
+      name: Thermoplast Flux
+      type: Flux
+      grade: 0
+      quality: white
+      from:
+      - Crew Skill Vendor
+      - Scavenging Mission
+    TRICOPPER_FLUX:
+      name: Tricopper Flux
+      type: Flux
+      grade: 0
+      quality: white
+      from:
+      - Crew Skill Vendor
+      - Scavenging Mission
+    VANADIUM_FLUX:
+      name: Vanadium Flux
+      type: Flux
+      grade: 0
+      quality: white
+      from:
+      - Crew Skill Vendor
+      - Scavenging Mission
+    ENDOTHERMIC_FLUX:
+      name: Endothermic Flux
+      type: Flux
+      grade: 0
+      quality: white
+      from:
+      - Crew Skill Vendor
+      - Scavenging Mission
+    PROTONIC_FLUX:
+      name: Protonic Flux
+      type: Flux
+      grade: 0
+      quality: white
+      from:
+      - Crew Skill Vendor
+      - Scavenging Mission
+    STANDARD_FLEVORIUM_FLUX:
+      name: Standard Flerovium Flux
+      type: Flux
+      grade: 0
+      quality: white
+      from:
+      - Crew Skill Vendor
+      - Scavenging Mission
+    PREMIUM_FLEVORIUM_FLUX:
+      name: Premium Flerovium Flux
+      type: Flux
+      grade: 0
+      quality: green
+      from:
+      - Crew Skill Vendor
+      - Scavenging Mission
+    PROTOTYPE_FLEVORIUM_FLUX:
+      name: Prototype Flerovium Flux
+      type: Flux
+      grade: 0
+      quality: blue
+      from:
+      - Crew Skill Vendor
+      - Scavenging Mission
+    
 
     AUGMENTATION_COMPONENT_MK_5:
       name: Augmentation Component MK-5
@@ -763,18 +845,48 @@ materials:
       - Underworld Trading Mission
 
   treasure_hunting:
+    FIRE_NODE:
+      name: Fire Node
+      type: Gemstone
+      grade: 1
+      quality: blue
+      from:
+      - Grade 1 Treasure Hunting Mission
+    MARILITE:
+      name: Marilite
+      type: Gemstone
+      grade: 2
+      quality: blue
+      from:
+      - Grade 2 Treasure Hunting Mission
+    TATOOINE_FLAMEGEM:
+      name: Tatooine Flamegem
+      type: Gemstone
+      grade: 3
+      quality: blue
+      from:
+      - Grade 3 Treasure Hunting Mission
+    SUNBLAZE:
+      name: Sunblaze
+      type: Gemstone
+      grade: 4
+      quality: blue
+      from:
+      - Grade 4 Treasure Hunting Mission
     PRISMATIC_CRYSTAL:
       name: Prismatic Crystal
       type: Gemstone
       grade: 5
+      quality: blue
       from:
-      - Treasure Hunting Mission
+      - Grade 5 Treasure Hunting Mission
     LORRDIAN_GEMSTONE:
       name: Lorrdian Gemstone
       type: Gemstone
       grade: 6
+      quality: blue
       from:
-      - Treasure Hunting Mission
+      - Grade 6 Treasure Hunting Mission
 
   scavenging:
     SILICA:
@@ -1089,6 +1201,60 @@ products:
           $ref: '#/materials/generic/TRAVELLA_CLOTH'
         count: 2
 
+    ADVANCED_VERSATILE_LIGHTSABER_HILT_11:
+      name: Advanced Versatile Lightsaber Hilt 11
+      type: Lightsaber Hilt
+      quality: purple
+      level: 22
+      recipe:
+      - item:
+          $ref: '#/products/artifice/OPILA_ARTIFICE_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/treasure_hunting/TATOOINE_FLAMEGEM'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/AUGMENT_MODIFICATION_ENHANCER'
+        count: 1
+      - item:
+          $ref: '#/materials/slicing/POWER_CAPACITOR'
+        count: 1
+    ADVANCED_VERSATILE_LIGHTSABER_HILT_13:
+      name: Advanced Versatile Lightsaber Hilt 13
+      type: Lightsaber Hilt
+      quality: purple
+      level: 26
+      recipe:
+      - item:
+          $ref: '#/products/artifice/OPILA_ARTIFICE_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/treasure_hunting/TATOOINE_FLAMEGEM'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/AUGMENT_MODIFICATION_ENHANCER'
+        count: 1
+      - item:
+          $ref: '#/materials/slicing/POWER_CAPACITOR'
+        count: 1
+    ADVANCED_VERSATILE_LIGHTSABER_HILT_15:
+      name: Advanced Versatile Lightsaber Hilt 15
+      type: Lightsaber Hilt
+      quality: purple
+      level: 30
+      recipe:
+      - item:
+          $ref: '#/products/artifice/FIRKRANN_ARTIFICE_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/treasure_hunting/SUNBLAZE'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/SONIC_IMPRINT_SENSOR'
+        count: 1
+      - item:
+          $ref: '#/materials/slicing/VACIERITE_MEMORY_CORE'
+        count: 1
     ADVANCED_VERSATILE_LIGHTSABER_HILT_19:
       name: Advanced Versatile Lightsaber Hilt 19
       type: Lightsaber Hilt
@@ -1352,9 +1518,82 @@ products:
           $ref: '#/materials/slicing/LANTHANIDE_MODULATOR'
         count: 2
 
+    ADVANCED_VERSATILE_ARMORING_11:
+      name: Advanced Versatile Armoring 11
+      type: Armoring
+      quality: purple
+      level: 22
+      recipe:
+      - item:
+          $ref: '#/products/synthweaving/OPILA_SYNTH_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/DRAMASSIAN_SILK'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/AUGMENT_MODIFICATION_ENHANCER'
+        count: 1
+      - item:
+          $ref: '#/materials/slicing/POWER_CAPACITOR'
+        count: 1
+    ADVANCED_VERSATILE_ARMORING_13:
+      name: Advanced Versatile Armoring 13
+      type: Armoring
+      quality: purple
+      level: 26
+      recipe:
+      - item:
+          $ref: '#/products/synthweaving/OPILA_SYNTH_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/DRAMASSIAN_SILK'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/AUGMENT_MODIFICATION_ENHANCER'
+        count: 1
+      - item:
+          $ref: '#/materials/slicing/POWER_CAPACITOR'
+        count: 1
+    ADVANCED_VERSATILE_ARMORING_15:
+      name: Advanced Versatile Armoring 15
+      type: Armoring
+      quality: purple
+      level: 30
+      recipe:
+      - item:
+          $ref: '#/products/synthweaving/FIRKRANN_SYNTH_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/SEPTSILK'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/SONIC_IMPRINT_SENSOR'
+        count: 1
+      - item:
+          $ref: '#/materials/slicing/VACIERITE_MEMORY_CORE'
+        count: 1
+    ADVANCED_VERSATILE_ARMORING_17:
+      name: Advanced Versatile Armoring 17
+      type: Armoring
+      quality: purple
+      level: 34
+      recipe:
+      - item:
+          $ref: '#/products/synthweaving/FIRKRANN_SYNTH_BONDED_ATTACHMENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/SEPTSILK'
+        count: 2
+      - item:
+          $ref: '#/materials/slicing/SONIC_IMPRINT_SENSOR'
+        count: 1
+      - item:
+          $ref: '#/materials/slicing/VACIERITE_MEMORY_CORE'
+        count: 1
     ADVANCED_VERSATILE_ARMORING_21:
       name: Advanced Versatile Armoring 21
       type: Armoring
+      quality: purple
       recipe:
       - item:
           $ref: '#/products/synthweaving/DAMIND_SYNTH_BONDED_ATTACHMENT'
@@ -1485,36 +1724,121 @@ products:
       - item: 
           $ref: '#/materials/scavenging/DESH'
         count: 2
+    BRONZIUM_CYBER_ASSEMBLY_COMPONENT:
+      name: Desh Cyber Assembly Component
+      type: Assembly Component
+      grade: 2
+      quality: green
+      recipe:
+      - item: 
+          $ref: '#/materials/generic/CONDUCTIVE_FLUX'
+        count: 2
+      - item: 
+          $ref: '#/materials/scavenging/PLASTOID'
+        count: 2
+      - item: 
+          $ref: '#/materials/scavenging/BRONZIUM'
+        count: 2
+    PHOBIUM_CYBER_ASSEMBLY_COMPONENT:
+      name: Phobium Cyber Assembly Component
+      type: Assembly Component
+      grade: 3
+      quality: green
+      recipe:
+      - item: 
+          $ref: '#/materials/generic/INSULATING_FLUX'
+        count: 2
+      - item: 
+          $ref: '#/materials/scavenging/LACQEROUS'
+        count: 2
+      - item: 
+          $ref: '#/materials/scavenging/PHOBIUM'
+        count: 2
 
     LETHAL_MOD_3: 
       name: Lethal Mod 3
       type: Mod
       quality: blue
+      level: 8
       recipe:
       - item:
           $ref: '#/products/cybertech/DESH_CYBER_ASSEMBLY_COMPONENT'
         count: 2
       - item:
           $ref: '#/materials/underworld_trading/TERENTHIUM'
+        count: 2
+    LETHAL_MOD_5: 
+      name: Lethal Mod 5
+      type: Mod
+      quality: blue
+      level: 10
+      recipe:
+      - item:
+          $ref: '#/products/cybertech/DESH_CYBER_ASSEMBLY_COMPONENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/TERENTHIUM'
+        count: 2
+    LETHAL_MOD_7: 
+      name: Lethal Mod 7
+      type: Mod
+      quality: blue
+      level: 14
+      recipe:
+      - item:
+          $ref: '#/products/cybertech/BRONZIUM_CYBER_ASSEMBLY_COMPONENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/MULLININE'
         count: 2
     LETHAL_MOD_9: 
       name: Lethal Mod 9
       type: Mod
       quality: blue
-      recipe: []
-
-    QUICK_SAVANT_ENHANCEMENT_9:
-      name: Quick Savant Enhancement 9
-      type: Enhancement
-      quality: blue
+      level: 18
       recipe:
       - item:
-          $ref: '#/materials/underworld_trading/ASD'
+          $ref: '#/products/cybertech/BRONZIUM_CYBER_ASSEMBLY_COMPONENT'
         count: 2
-    INITIATIVE_ENHANCEMENT_3:
-      name: Initiative Enhancement 9
+      - item:
+          $ref: '#/materials/underworld_trading/MULLININE'
+        count: 2
+    LETHAL_MOD_11: 
+      name: Lethal Mod 11
+      type: Mod
+      quality: blue
+      level: 22
+      recipe:
+      - item:
+          $ref: '#/products/cybertech/PHOBIUM_CYBER_ASSEMBLY_COMPONENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/XONOLITE'
+        count: 2
+    LETHAL_MOD_13: 
+      name: Lethal Mod 13
+      type: Mod
+      quality: blue
+      level: 26
+      recipe:
+      - item:
+          $ref: '#/products/cybertech/PHOBIUM_CYBER_ASSEMBLY_COMPONENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/XONOLITE'
+        count: 2
+    LETHAL_MOD_15: 
+      name: Lethal Mod 15
+      type: Mod
+      quality: blue
+      level: 30
+      recipe: []
+
+    QUICK_SAVANT_ENHANCEMENT_5:
+      name: Quick Savant Enhancement 5
       type: Enhancement
       quality: blue
+      level: 10
       recipe:
       - item:
           $ref: '#/products/cybertech/DESH_CYBER_ASSEMBLY_COMPONENT'
@@ -1522,8 +1846,87 @@ products:
       - item:
           $ref: '#/materials/underworld_trading/TERENTHIUM'
         count: 2
+    QUICK_SAVANT_ENHANCEMENT_9:
+      name: Quick Savant Enhancement 9
+      type: Enhancement
+      quality: blue
+      recipe: []
+
+    INITIATIVE_ENHANCEMENT_3:
+      name: Initiative Enhancement 9
+      type: Enhancement
+      quality: blue
+      level: 8
+      recipe:
+      - item:
+          $ref: '#/products/cybertech/DESH_CYBER_ASSEMBLY_COMPONENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/TERENTHIUM'
+        count: 2
+    INITIATIVE_ENHANCEMENT_5:
+      name: Initiative Enhancement 5
+      type: Enhancement
+      quality: blue
+      level: 10
+      recipe:
+      - item:
+          $ref: '#/products/cybertech/DESH_CYBER_ASSEMBLY_COMPONENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/TERENTHIUM'
+        count: 2
+    INITIATIVE_ENHANCEMENT_7:
+      name: Initiative Enhancement 7
+      type: Enhancement
+      quality: blue
+      level: 14
+      recipe:
+      - item:
+          $ref: '#/products/cybertech/BRONZIUM_CYBER_ASSEMBLY_COMPONENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/MULLININE'
+        count: 2
     INITIATIVE_ENHANCEMENT_9:
       name: Initiative Enhancement 9
       type: Enhancement
       quality: blue
+      level: 18
+      recipe:
+      - item:
+          $ref: '#/products/cybertech/BRONZIUM_CYBER_ASSEMBLY_COMPONENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/MULLININE'
+        count: 2
+    INITIATIVE_ENHANCEMENT_11:
+      name: Initiative Enhancement 11
+      type: Enhancement
+      quality: blue
+      level: 22
+      recipe:
+      - item:
+          $ref: '#/products/cybertech/PHOBIUM_CYBER_ASSEMBLY_COMPONENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/XONOLITE'
+        count: 2
+    INITIATIVE_ENHANCEMENT_13:
+      name: Initiative Enhancement 13
+      type: Enhancement
+      quality: blue
+      level: 26
+      recipe:
+      - item:
+          $ref: '#/products/cybertech/PHOBIUM_CYBER_ASSEMBLY_COMPONENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/XONOLITE'
+        count: 2
+    INITIATIVE_ENHANCEMENT_15:
+      name: Initiative Enhancement 15
+      type: Enhancement
+      quality: blue
+      level: 30
       recipe: []
