@@ -10,6 +10,14 @@ materials:
       from:
       - Crew Skill Vendor
       - Archaeology Mission
+    CONDUCTIVE_FLUX:
+      name: Conductive Flux
+      type: Crafting Material
+      grade: 1
+      quality: white
+      from:
+      - Crew Skill Vendor
+      - Scavenging Mission
     THERMOIONIC_GEL_SUSPENSION:
       name: Thermoionic Gel Suspension
       type: Crafting Material
@@ -768,6 +776,165 @@ materials:
       from:
       - Treasure Hunting Mission
 
+  scavenging:
+    SILICA:
+      name: Silica
+      type: Scavenged Compound
+      grade: 1
+      from:
+      - Grade 1 Scavenging Mission
+    PLASTOID:
+      name: Plastoid
+      type: Scavenged Compound
+      grade: 2
+      from:
+      - Grade 2 Scavenging Mission
+    LACQEROUS:
+      name: Lacqerous
+      type: Scavenged Compound
+      grade: 3
+      from:
+      - Grade 3 Scavenging Mission
+    FIBERMESH:
+      name: Fibermesh
+      type: Scavenged Compound
+      grade: 4
+      from:
+      - Grade 4 Scavenging Mission
+    POLYPLAST:
+      name: Polyplast
+      type: Scavenged Compound
+      grade: 5
+      from:
+      - Grade 5 Scavenging Mission
+    ZAL_ALLOY:
+      name: Zal Alloy
+      type: Scavenged Compound
+      grade: 6
+      from:
+      - Grade 6 Scavenging Mission
+    TURADIUM:
+      name: Turadium
+      type: Scavenged Compound
+      grade: 7
+      from:
+      - Grade 7 Scavenging Mission
+    MOLYTEX:
+      name: Molytex
+      type: Scavenged Compound
+      grade: 8
+      from:
+      - Grade 8 Scavenging Mission
+    POLISHED_LAMINOID:
+      name: Polished Laminoid
+      type: Scavenged Compound
+      grade: 9
+      from:
+      - Grade 9 Scavenging Mission
+    POLISHED_CHANLON:
+      name: Polished Chanlon
+      type: Scavenged Compound
+      grade: 10
+      from:
+      - Grade 10 Scavenging Mission
+    PREMIUM_TEMPERSTEEL:
+      name: Premium Tempersteel
+      type: Scavenged Compound
+      grade: 11
+      from:
+      - Grade 11 Scavenging Mission
+    PROTOTYPE_TEMPERSTEEL:
+      name: Prototype Tempersteel
+      type: Scavenged Compound
+      grade: 11
+      from:
+      - Grade 11 Scavenging Mission
+    ARTIFACT_TEMPERSTEEL:
+      name: Artifact Tempersteel
+      type: Scavenged Compound
+      grade: 11
+      from:
+      - Grade 11 Scavenging Mission
+
+
+    DESH:
+      name: Desh
+      type: Scavenged Metal
+      grade: 1
+      from:
+      - Grade 1 Scavenging Mission
+    BRONZIUM:
+      name: Bronzium
+      type: Scavenged Metal
+      grade: 2
+      from:
+      - Grade 2 Scavenging Mission
+    PHOBIUM:
+      name: Phobium
+      type: Scavenged Metal
+      grade: 3
+      from:
+      - Grade 3 Scavenging Mission
+    BONDITE:
+      name: Bondite
+      type: Scavenged Metal
+      grade: 4
+      from:
+      - Grade 4 Scavenging Mission
+    ELECTRUM:
+      name: Electrum
+      type: Scavenged Metal
+      grade: 5
+      from:
+      - Grade 5 Scavenging Mission
+    DURASTEEL:
+      name: Durasteel
+      type: Scavenged Metal
+      grade: 6
+      from:
+      - Grade 6 Scavenging Mission
+    MYTHRA:
+      name: Mythra
+      type: Scavenged Metal
+      grade: 7
+      from:
+      - Grade 7 Scavenging Mission
+    FARIUM:
+      name: Farium
+      type: Scavenged Metal
+      grade: 8
+      from:
+      - Grade 8 Scavenging Mission
+    POLISHED_ALUMINIUM:
+      name: Polished Aluminium
+      type: Scavenged Metal
+      grade: 9
+      from:
+      - Grade 9 Scavenging Mission
+    POLISHED_PLASTEEL:
+      name: Polished Plasteel
+      type: Scavenged Metal
+      grade: 10
+      from:
+      - Grade 10 Scavenging Mission
+    PREMIUM_DURANIUM_PLATING:
+      name: Premium Duranium Plating
+      type: Scavenged Metal
+      grade: 11
+      from:
+      - Grade 11 Scavenging Mission
+    PROTOTYPE_DURANIUM_PLATING:
+      name: Prototype Duranium Plating
+      type: Scavenged Metal
+      grade: 11
+      from:
+      - Grade 11 Scavenging Mission
+    ARTIFACT_DURANIUM_PLATING:
+      name: Artifact Duranium Plating
+      type: Scavenged Metal
+      grade: 11
+      from:
+      - Grade 11 Scavenging Mission
 
 products:
   artifice:
@@ -1303,17 +1470,58 @@ products:
         count: 10
 
   cybertech:
-    LETHAL_MOD_9:
+    DESH_CYBER_ASSEMBLY_COMPONENT:
+      name: Desh Cyber Assembly Component
+      type: Assembly Component
+      grade: 1
+      quality: green
+      recipe:
+      - item: 
+          $ref: '#/materials/generic/CONDUCTIVE_FLUX'
+        count: 2
+      - item: 
+          $ref: '#/materials/scavenging/SILICA'
+        count: 2
+      - item: 
+          $ref: '#/materials/scavenging/DESH'
+        count: 2
+
+    LETHAL_MOD_3: 
+      name: Lethal Mod 3
+      type: Mod
+      quality: blue
+      recipe:
+      - item:
+          $ref: '#/products/cybertech/DESH_CYBER_ASSEMBLY_COMPONENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/TERENTHIUM'
+        count: 2
+    LETHAL_MOD_9: 
       name: Lethal Mod 9
       type: Mod
       quality: blue
       recipe: []
 
-    QUICK_SAVANG_ENHANCEMENT_9:
+    QUICK_SAVANT_ENHANCEMENT_9:
       name: Quick Savant Enhancement 9
       type: Enhancement
       quality: blue
-      recipe: []
+      recipe:
+      - item:
+          $ref: '#/materials/underworld_trading/ASD'
+        count: 2
+    INITIATIVE_ENHANCEMENT_3:
+      name: Initiative Enhancement 9
+      type: Enhancement
+      quality: blue
+      recipe:
+      - item:
+          $ref: '#/products/cybertech/DESH_CYBER_ASSEMBLY_COMPONENT'
+        count: 2
+      - item:
+          $ref: '#/materials/underworld_trading/TERENTHIUM'
+        count: 2
     INITIATIVE_ENHANCEMENT_9:
       name: Initiative Enhancement 9
       type: Enhancement

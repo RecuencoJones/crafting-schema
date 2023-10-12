@@ -1,9 +1,6 @@
-import { promisify } from 'util';
 import yaml from 'js-yaml';
-import _deref from 'json-schema-deref';
+import $RefParser from '@apidevtools/json-schema-ref-parser';
 import { validate } from './metaschema.js';
-
-const deref = promisify(_deref);
 
 export function load(schema) {
   return yaml.load(schema);
@@ -11,17 +8,17 @@ export function load(schema) {
 
 export async function parse(schema) {
   try {
-    const value = load(schema);
+    let value = load(schema);
 
     if (!value) {
       return {};
     }
 
-    const resolved = await deref(value);
+    value = await $RefParser.dereference(value);
 
-    validate(resolved);
+    validate(value);
 
-    return resolved;
+    return value;
   } catch(err) {
     let message = err.message;
 
