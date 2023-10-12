@@ -11,6 +11,7 @@
 
 <script>
 import { useGlobalState } from '../state';
+import { isMacOS } from '../utils';
 import TopMenuItem from './TopMenuItem.vue';
 
 
@@ -106,11 +107,8 @@ export default {
         }
       ]
     },
-    isMacOS() {
-      return navigator.userAgentData.platform === 'macOS';
-    },
     ctrlCmd() {
-      return this.isMacOS ? '⌘' : 'Ctrl ';
+      return isMacOS() ? '⌘' : 'Ctrl ';
     }
   },
   methods: {

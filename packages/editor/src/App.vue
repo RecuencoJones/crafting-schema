@@ -56,6 +56,7 @@ import Splash from './components/Splash.vue';
 import { useGlobalState } from './state';
 import { verifyPermission } from './services/files';
 import { exportCSV, exportTable } from './services/export';
+import { preventNativeSave } from './utils';
 
 const defaultSchema = '# open a file or start editing\nproducts: {}';
 
@@ -144,6 +145,8 @@ export default {
     },
 
     setKeybinds() {
+      document.addEventListener('keydown', preventNativeSave);
+
       hotkeys.filter = () => true;
 
       hotkeys('ctrl+s, cmd+s', () => {
@@ -158,6 +161,7 @@ export default {
 
     unsetKeybinds() {
       hotkeys.unbind();
+      document.removeEventListener('keydown', preventNativeSave);
     },
 
     handleChange(value) {

@@ -108,17 +108,31 @@ materials:
     AUGMENTATION_COMPONENT_MK_5:
       name: Augmentation Component MK-5
       type: Augmentation Component
+      grade: 5
+      quality: green
+      from:
+      - Deconstruct Grade 6 Crafted Items
+    AUGMENTATION_COMPONENT_MK_6:
+      name: Augmentation Component MK-6
+      type: Augmentation Component
       grade: 6
       quality: green
       from:
-      - Deconstruct Grade 6 Crafter Items
-    AUGMENTATION_COMPONENT_MK_6:
-      name: Augmentation Component MK-6
+      - Deconstruct Grade 7 Crafted Items
+    AUGMENTATION_COMPONENT_MK_7:
+      name: Augmentation Component MK-7
       type: Augmentation Component
       grade: 7
       quality: green
       from:
-      - Deconstruct Grade 7 Crafter Items
+      - Deconstruct Grade 7 Crafted Items
+    AUGMENTATION_COMPONENT_MK_8:
+      name: Augmentation Component MK-8
+      type: Augmentation Component
+      grade: 8
+      quality: green
+      from:
+      - Deconstruct Grade 8 Crafted Items
 
   slicing:
     POWER_TUBE:
@@ -594,6 +608,147 @@ materials:
     DREAMSILK:
       name: Dreamsilk
       type: Luxury Fabric
+      grade: 10
+      quality: purple
+      from:
+      - Underworld Trading Mission
+
+    TERENTHIUM:
+      name: Terenthium
+      type: Underworld Metal
+      grade: 1
+      quality: blue
+      from:
+      - Underworld Trading Mission
+    AGRINIUM:
+      name: Agrinium
+      type: Underworld Metal
+      grade: 1
+      quality: purple
+      from:
+      - Underworld Trading Mission
+    MULLININE:
+      name: Mullinine
+      type: Underworld Metal
+      grade: 2
+      quality: blue
+      from:
+      - Underworld Trading Mission
+    ALUSTEEL:
+      name: Alusteel
+      type: Underworld Metal
+      grade: 2
+      quality: purple
+      from:
+      - Underworld Trading Mission
+    XONOLITE:
+      name: Xonolite
+      type: Underworld Metal
+      grade: 3
+      quality: blue
+      from:
+      - Underworld Trading Mission
+    KRAYT_DRAGON_SCALES:
+      name: Krayt Dragon Scales
+      type: Underworld Metal
+      grade: 3
+      quality: purple
+      from:
+      - Underworld Trading Mission
+    TITANIUM:
+      name: Titanium
+      type: Underworld Metal
+      grade: 4
+      quality: blue
+      from:
+      - Underworld Trading Mission
+    NEURANIUM:
+      name: Neuranium
+      type: Underworld Metal
+      grade: 4
+      quality: purple
+      from:
+      - Underworld Trading Mission
+    QUADRANIUM:
+      name: Quadranium
+      type: Underworld Metal
+      grade: 5
+      quality: blue
+      from:
+      - Underworld Trading Mission
+    PROMETHIUM:
+      name: Promethium
+      type: Underworld Metal
+      grade: 5
+      quality: purple
+      from:
+      - Underworld Trading Mission
+    CIRIDIUM:
+      name: Ciridium
+      type: Underworld Metal
+      grade: 6
+      quality: blue
+      from:
+      - Underworld Trading Mission
+    MANDALORIAN_IRON:
+      name: Mandalorian Iron
+      type: Underworld Metal
+      grade: 6
+      quality: purple
+      from:
+      - Underworld Trading Mission
+    FRASIUM:
+      name: Frasium
+      type: Underworld Metal
+      grade: 7
+      quality: blue
+      from:
+      - Underworld Trading Mission
+    BERYLLIUS:
+      name: Beryllius
+      type: Underworld Metal
+      grade: 7
+      quality: purple
+      from:
+      - Underworld Trading Mission
+    TRIMANTIUM:
+      name: Trimantium
+      type: Underworld Metal
+      grade: 8
+      quality: blue
+      from:
+      - Underworld Trading Mission
+    DOONIUM:
+      name: Doonium
+      type: Underworld Metal
+      grade: 8
+      quality: purple
+      from:
+      - Underworld Trading Mission
+    VANDINITE:
+      name: Vandinite
+      type: Underworld Metal
+      grade: 9
+      quality: blue
+      from:
+      - Underworld Trading Mission
+    ZAKUULAN_DURASTEEL:
+      name: Zakuulan Durasteel
+      type: Underworld Metal
+      grade: 9
+      quality: purple
+      from:
+      - Underworld Trading Mission
+    HADRIUM:
+      name: Hadrium
+      type: Underworld Metal
+      grade: 10
+      quality: blue
+      from:
+      - Underworld Trading Mission
+    MADILON_INGOT:
+      name: Madilon Ingot
+      type: Underworld Metal
       grade: 10
       quality: purple
       from:
@@ -1110,3 +1265,57 @@ products:
       - item:
           $ref: '#/materials/generic/AUGMENTATION_COMPONENT_MK_6'
         count: 10
+    AUGMENTATION_SLOT_MK_7:
+      name: Augmentation Slot MK-7
+      type: Augmentation Slot
+      grade: 7
+      quality: blue
+      recipe:
+      - item:
+          $ref: '#/materials/underworld_trading/HYPERCLOTH'
+        count: 4
+      - item:
+          $ref: '#/materials/slicing/BIO_MECHANICAL_INTERFACE_CHIP'
+        count: 4
+      - item:
+          $ref: '#/products/synthweaving/CARBONIC_SYNTH_BONDED_ATTACHMENT'
+        count: 4
+      - item:
+          $ref: '#/materials/generic/AUGMENTATION_COMPONENT_MK_7'
+        count: 10
+    AUGMENTATION_SLOT_MK_8:
+      name: Augmentation Slot MK-8
+      type: Augmentation Slot
+      grade: 8
+      quality: blue
+      recipe:
+      - item:
+          $ref: '#/materials/underworld_trading/VEDA_CLOTH'
+        count: 4
+      - item:
+          $ref: '#/materials/slicing/BIOCELL_MEMORY_CORE'
+        count: 4
+      - item:
+          $ref: '#/products/synthweaving/RUUSAN_SYNTH_BONDED_ATTACHMENT'
+        count: 4
+      - item:
+          $ref: '#/materials/generic/AUGMENTATION_COMPONENT_MK_8'
+        count: 10
+
+  cybertech:
+    LETHAL_MOD_9:
+      name: Lethal Mod 9
+      type: Mod
+      quality: blue
+      recipe: []
+
+    QUICK_SAVANG_ENHANCEMENT_9:
+      name: Quick Savant Enhancement 9
+      type: Enhancement
+      quality: blue
+      recipe: []
+    INITIATIVE_ENHANCEMENT_9:
+      name: Initiative Enhancement 9
+      type: Enhancement
+      quality: blue
+      recipe: []
